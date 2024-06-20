@@ -5,6 +5,10 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/bezhan2009/BeatCloud)
 ![GitHub last commit](https://img.shields.io/github/last-commit/bezhan2009/BeatCloud)
 ![GitHub User's stars](https://img.shields.io/github/stars/bezhan2009?style=social)
+<br>
+<br>
+![Python](https://img.shields.io/badge/python-3.12-blue)
+![Django](https://img.shields.io/badge/django-latest-brightgreen)
 
 # BeatCloud
 
