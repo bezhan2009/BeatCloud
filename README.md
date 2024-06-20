@@ -1,4 +1,6 @@
 
+# BeatCloud
+
 ![GitHub top language](https://img.shields.io/github/languages/top/bezhan2009/BeatCloud) 
 ![GitHub language count](https://img.shields.io/github/languages/count/bezhan2009/BeatCloud)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/bezhan2009/BeatCloud)
@@ -9,8 +11,6 @@
 <br>
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![Django](https://img.shields.io/badge/django-latest-brightgreen)
-
-# BeatCloud
 
 BeatCloud is a modern music streaming application built with Django. It offers all the essential features and functionalities for an immersive music listening experience.
 
