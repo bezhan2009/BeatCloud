@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
                 ('audio_file', models.FileField(upload_to='music_files/')),
                 ('duration', models.DurationField(blank=True, null=True)),
                 ('is_deleted', models.BooleanField(default=False)),
-                ('views', models.IntegerField(default=0)),
+                ('listens', models.IntegerField(default=0)),
             ],
         ),
     ]

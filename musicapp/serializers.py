@@ -5,28 +5,26 @@ from .models import (
     Singer,
     Music,
     Genre
-    )
-from userapp.models import UserProfile
+)
 
 
 class AlbumSerializer(serializers.ModelSerializer):
+    singer = serializers.PrimaryKeyRelatedField(queryset=Singer.objects.all(), required=False)
+
     class Meta:
         model = Album
         fields = '__all__'
-
-
-class ArtistSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Singer
-        fields = '__all__'
+        read_only_fields = ['singer']
 
 
 class MusicSerializer(serializers.ModelSerializer):
-    user = serializers.PrimaryKeyRelatedField(queryset=UserProfile.objects.all(), required=False)
+    singer = serializers.PrimaryKeyRelatedField(queryset=Singer.objects.all(), required=False)
+    album = serializers.PrimaryKeyRelatedField(queryset=Album.objects.all(), required=False)
 
     class Meta:
         model = Music
         fields = '__all__'
+        # read_only_fields = ['is_deleted', 'singer', 'duration']
 
 
 class GenreSerializer(serializers.ModelSerializer):

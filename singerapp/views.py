@@ -8,6 +8,10 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
+from musicapp.models import (Album,
+                             Music)
+from musicapp.serializers import (AlbumSerializer,
+                                  MusicSerializer)
 from utils.tokens import get_user_id_from_token
 from .serializers import *
 
@@ -19,14 +23,14 @@ class SingerList(APIView):
     permission_classes = (permissions.AllowAny,)
 
     def get(self, request):
-        artists = Singer.objects.all()
-        if not artists:
+        singers = Singer.objects.all()
+        if not singers:
             return Response(
-                data={'message': 'No Artists found'},
+                data={'message': 'No singers are found'},
                 status=status.HTTP_404_NOT_FOUND
             )
 
-        serializer = SingerSerializer(artists, many=True)
+        serializer = SingerSerializer(singers, many=True)
         return Response(serializer.data)
 
     def post(self, request):
@@ -97,14 +101,25 @@ class SingerDetail(APIView):
 
     def get_object(self, pk):
         user_id = get_user_id_from_token(self.request)
-        user = UserProfile.objects.get(id=user_id)
-        return get_object_or_404(Singer, pk=pk, user=user), user_id
+        try:
+            user = UserProfile.objects.get(id=user_id)
+        except UserProfile.DoesNotExist:
+            return Response(
+                data={'message': 'User does not exist'},
+                status=status.HTTP_401_UNAUTHORIZED
+            ), 0
+        return get_object_or_404(Singer, pk=pk, user=user, is_active=True), user_id
 
     def get(self, request, pk):
         try:
-            singer = self.get_object(pk)
+            singer, user_id = self.get_object(pk)
             serializer = SingerSerializer(singer)
         except Http404:
+            return Response(
+                data={'message': 'Singer not found'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        except Singer.DoesNotExist:
             return Response(
                 data={'message': 'Singer not found'},
                 status=status.HTTP_404_NOT_FOUND
@@ -118,6 +133,8 @@ class SingerDetail(APIView):
     def patch(self, request, pk):
         try:
             singer, user_id = self.get_object(pk)
+            if not user_id:
+                return
         except Http404:
             return Response(
                 data={'message': 'Singer not found'},
@@ -142,6 +159,8 @@ class SingerDetail(APIView):
     def delete(self, request, pk):
         try:
             singer, user_id = self.get_object(pk)
+            if not user_id:
+                return
         except Http404:
             return Response(
                 data={'message': 'Singer not found'},
@@ -158,7 +177,7 @@ class SingerDetail(APIView):
 
 class SingerRecovery(APIView):
     authentication_classes = (JWTAuthentication,)
-    permission_classes = (permissions.AllowAny,)
+    permission_classes = (permissions.IsAuthenticated,)
 
     def patch(self, request):
         user_id = get_user_id_from_token(self.request)
@@ -180,5 +199,57 @@ class SingerRecovery(APIView):
         )
 
 
+class SingersAlbumList(APIView):
+    authentication_classes = (JWTAuthentication,)
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request, pk):
+        try:
+            singer = Singer.objects.get(id=pk)
+        except Singer.DoesNotExist:
+            return Response(
+                data={'message': 'Singer not found'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        albums = Album.objects.filter(singer=singer)
+        if not albums:
+            return Response(
+                data={'message': 'No albums are found'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        serializer = AlbumSerializer(albums, many=True)
+
+        return Response(
+            data=serializer.data,
+            status=status.HTTP_200_OK
+        )
 
 
+class SingersMusicList(APIView):
+    authentication_classes = (JWTAuthentication,)
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request, pk):
+        try:
+            singer = Singer.objects.get(id=pk)
+        except Singer.DoesNotExist:
+            return Response(
+                data={'message': 'Singer not found'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        songs = Music.objects.filter(singer=singer)
+        if not songs:
+            return Response(
+                data={'message': 'No songs are found'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        serializer = MusicSerializer(songs, many=True)
+
+        return Response(
+            data=serializer.data,
+            status=status.HTTP_200_OK
+        )

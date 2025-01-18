@@ -145,3 +145,1203 @@ Traceback (most recent call last):
     raise ImproperlyConfigured(
 django.core.exceptions.ImproperlyConfigured: Field name `age` is not valid for model `UserProfile` in `userapp.serializers.UserProfileSerializer`.
 ERROR 2025-01-17 11:20:00,250 basehttp 15364 13680 "POST /auth/sign-up/ HTTP/1.1" 500 151912
+WARNING 2025-01-18 16:30:33,467 log 38088 37104 Unauthorized: /auth/sign-in/
+WARNING 2025-01-18 16:30:33,469 basehttp 38088 37104 "POST /auth/sign-in/ HTTP/1.1" 401 63
+WARNING 2025-01-18 16:30:41,678 log 38088 37104 Unauthorized: /auth/sign-in/
+WARNING 2025-01-18 16:30:41,678 basehttp 38088 37104 "POST /auth/sign-in/ HTTP/1.1" 401 63
+WARNING 2025-01-18 16:32:26,598 log 28812 12416 Not Found: /singers/
+WARNING 2025-01-18 16:32:26,599 basehttp 28812 12416 "GET /singers/ HTTP/1.1" 404 30
+WARNING 2025-01-18 16:39:32,074 log 36264 34632 Not Found: /singers/
+WARNING 2025-01-18 16:39:32,074 basehttp 36264 34632 "GET /singers/ HTTP/1.1" 404 34
+WARNING 2025-01-18 16:40:33,281 log 36264 29256 Not Found: /singers/albums/1
+WARNING 2025-01-18 16:40:33,281 basehttp 36264 29256 "GET /singers/albums/1 HTTP/1.1" 404 30
+WARNING 2025-01-18 16:40:57,550 log 36264 29256 Not Found: /singers/singers/1
+WARNING 2025-01-18 16:40:57,550 basehttp 36264 29256 "GET /singers/singers/1 HTTP/1.1" 404 4094
+WARNING 2025-01-18 16:41:06,369 log 36264 29256 Not Found: /singers/songs/1
+WARNING 2025-01-18 16:41:06,370 basehttp 36264 29256 "GET /singers/songs/1 HTTP/1.1" 404 4088
+WARNING 2025-01-18 16:41:29,932 log 33972 37072 Not Found: /singers/songs/1
+WARNING 2025-01-18 16:41:29,932 basehttp 33972 37072 "GET /singers/songs/1 HTTP/1.1" 404 30
+ERROR 2025-01-18 16:44:03,088 log 33972 37380 Internal Server Error: /singers
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/singers/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-01-18 16:44:03,091 basehttp 33972 37380 "POST /singers HTTP/1.1" 500 79445
+WARNING 2025-01-18 16:44:58,863 log 38352 37408 Not Found: /singers
+WARNING 2025-01-18 16:44:58,864 basehttp 38352 37408 "POST /singers HTTP/1.1" 404 3216
+WARNING 2025-01-18 16:45:03,720 log 38352 37408 Not Found: /singers/
+WARNING 2025-01-18 16:45:03,721 basehttp 38352 37408 "POST /singers/ HTTP/1.1" 404 4069
+ERROR 2025-01-18 16:45:38,792 log 2200 36056 Internal Server Error: /singers
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/singers/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-01-18 16:45:38,794 basehttp 2200 36056 "POST /singers HTTP/1.1" 500 79445
+WARNING 2025-01-18 16:46:24,340 log 14804 30796 Not Found: /singers
+WARNING 2025-01-18 16:46:24,340 basehttp 14804 30796 "POST /singers HTTP/1.1" 404 3216
+WARNING 2025-01-18 16:49:43,606 log 14804 1204 Not Found: /singers
+WARNING 2025-01-18 16:49:43,607 basehttp 14804 1204 "POST /singers HTTP/1.1" 404 3216
+WARNING 2025-01-18 16:50:18,515 log 39008 2928 Not Found: /singers/singers
+WARNING 2025-01-18 16:50:18,516 basehttp 39008 2928 "POST /singers/singers HTTP/1.1" 404 4089
+ERROR 2025-01-18 16:50:27,280 log 39008 2928 Internal Server Error: /singers
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/singers/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-01-18 16:50:27,282 basehttp 39008 2928 "POST /singers HTTP/1.1" 500 79445
+ERROR 2025-01-18 16:52:36,322 log 36264 30052 Internal Server Error: /singers
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/singers/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-01-18 16:52:36,324 basehttp 36264 30052 "POST /singers HTTP/1.1" 500 79445
+ERROR 2025-01-18 16:53:23,348 log 36264 33536 Internal Server Error: /singers/1/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\singerapp\views.py", line 109, in get
+    singer = self.get_object(pk)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\singerapp\views.py", line 104, in get_object
+    user = UserProfile.objects.get(id=user_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 649, in get
+    raise self.model.DoesNotExist(
+userapp.models.UserProfile.DoesNotExist: UserProfile matching query does not exist.
+ERROR 2025-01-18 16:53:23,352 basehttp 36264 33536 "GET /singers/1/ HTTP/1.1" 500 113956
+ERROR 2025-01-18 16:54:04,337 log 37560 35148 Internal Server Error: /singers/1/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\singerapp\views.py", line 109, in get
+    singer = self.get_object(pk)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\singerapp\views.py", line 104, in get_object
+    user = UserProfile.objects.get(id=user_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 649, in get
+    raise self.model.DoesNotExist(
+userapp.models.UserProfile.DoesNotExist: UserProfile matching query does not exist.
+ERROR 2025-01-18 16:54:04,341 basehttp 37560 35148 "GET /singers/1/ HTTP/1.1" 500 113956
+ERROR 2025-01-18 16:54:05,862 log 37560 38308 Internal Server Error: /singers/1/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\singerapp\views.py", line 109, in get
+    singer = self.get_object(pk)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\singerapp\views.py", line 104, in get_object
+    user = UserProfile.objects.get(id=user_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 649, in get
+    raise self.model.DoesNotExist(
+userapp.models.UserProfile.DoesNotExist: UserProfile matching query does not exist.
+ERROR 2025-01-18 16:54:05,864 basehttp 37560 38308 "GET /singers/1/ HTTP/1.1" 500 113956
+ERROR 2025-01-18 16:54:07,166 log 37560 32356 Internal Server Error: /singers/1/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\singerapp\views.py", line 109, in get
+    singer = self.get_object(pk)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\singerapp\views.py", line 104, in get_object
+    user = UserProfile.objects.get(id=user_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 649, in get
+    raise self.model.DoesNotExist(
+userapp.models.UserProfile.DoesNotExist: UserProfile matching query does not exist.
+ERROR 2025-01-18 16:54:07,170 basehttp 37560 32356 "GET /singers/1/ HTTP/1.1" 500 113956
+ERROR 2025-01-18 16:54:35,727 log 37560 37072 Internal Server Error: /singers/1/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\fields.py", line 104, in get_attribute
+    instance = getattr(instance, attr)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\singerapp\views.py", line 123, in get
+    data=serializer.data,
+         ^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 571, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 525, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `name` on serializer `SingerSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `tuple` instance.
+Original exception text was: 'tuple' object has no attribute 'name'.
+ERROR 2025-01-18 16:54:35,732 basehttp 37560 37072 "GET /singers/1/ HTTP/1.1" 500 130424
+ERROR 2025-01-18 16:54:41,285 log 37560 37072 Internal Server Error: /singers/1/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\fields.py", line 104, in get_attribute
+    instance = getattr(instance, attr)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\singerapp\views.py", line 123, in get
+    data=serializer.data,
+         ^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 571, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 525, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `name` on serializer `SingerSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `tuple` instance.
+Original exception text was: 'tuple' object has no attribute 'name'.
+ERROR 2025-01-18 16:54:41,288 basehttp 37560 37072 "GET /singers/1/ HTTP/1.1" 500 130271
+ERROR 2025-01-18 16:58:40,050 log 37048 35732 Internal Server Error: /singers/1
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/singers/1/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-01-18 16:58:40,052 basehttp 37048 35732 "PATCH /singers/1 HTTP/1.1" 500 79113
+ERROR 2025-01-18 16:58:46,460 log 37048 26348 Internal Server Error: /singers/1/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\singerapp\views.py", line 129, in patch
+    singer, user_id = self.get_object(pk)
+                      ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\singerapp\views.py", line 104, in get_object
+    user = UserProfile.objects.get(id=user_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 649, in get
+    raise self.model.DoesNotExist(
+userapp.models.UserProfile.DoesNotExist: UserProfile matching query does not exist.
+ERROR 2025-01-18 16:58:46,464 basehttp 37048 26348 "PATCH /singers/1/ HTTP/1.1" 500 113744
+ERROR 2025-01-18 16:59:02,576 log 37048 26348 Internal Server Error: /singers/1
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/singers/1/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-01-18 16:59:02,578 basehttp 37048 26348 "PATCH /singers/1 HTTP/1.1" 500 79492
+WARNING 2025-01-18 17:00:56,769 log 37048 39540 Not Found: /singers/recover/1/
+WARNING 2025-01-18 17:00:56,769 basehttp 37048 39540 "PATCH /singers/recover/1/ HTTP/1.1" 404 4101
+WARNING 2025-01-18 17:01:02,385 log 37048 39540 Not Found: /singers/restore/1
+WARNING 2025-01-18 17:01:02,385 basehttp 37048 39540 "PATCH /singers/restore/1 HTTP/1.1" 404 4098
+WARNING 2025-01-18 17:02:15,344 log 11900 38036 Not Found: /singers/1/
+WARNING 2025-01-18 17:02:15,345 basehttp 11900 38036 "DELETE /singers/1/ HTTP/1.1" 404 30
+WARNING 2025-01-18 17:02:21,192 log 11900 10140 Not Found: /singers/1/
+WARNING 2025-01-18 17:02:21,193 basehttp 11900 10140 "GET /singers/1/ HTTP/1.1" 404 30
+WARNING 2025-01-18 17:02:55,774 log 11900 38796 Not Found: /music/1
+WARNING 2025-01-18 17:02:55,775 basehttp 11900 38796 "GET /music/1 HTTP/1.1" 404 29
+ERROR 2025-01-18 17:02:55,888 log 11900 38796 Internal Server Error: /music
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/music/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-01-18 17:02:55,890 basehttp 11900 38796 "POST /music HTTP/1.1" 500 79413
+WARNING 2025-01-18 17:02:56,955 log 11900 35200 Bad Request: /auth/sign-up/
+WARNING 2025-01-18 17:02:56,955 basehttp 11900 35200 "POST /auth/sign-up/ HTTP/1.1" 400 58
+WARNING 2025-01-18 17:02:57,319 log 11900 14804 Not Found: /singers/albums/1/
+WARNING 2025-01-18 17:02:57,320 basehttp 11900 14804 "GET /singers/albums/1/ HTTP/1.1" 404 33
+WARNING 2025-01-18 17:02:57,490 log 11900 8600 Not Found: /singers/songs/1/
+WARNING 2025-01-18 17:02:57,491 basehttp 11900 8600 "GET /singers/songs/1/ HTTP/1.1" 404 32
+WARNING 2025-01-18 17:02:57,654 log 11900 38040 Not Found: /singers/1/
+WARNING 2025-01-18 17:02:57,654 basehttp 11900 38040 "GET /singers/1/ HTTP/1.1" 404 30
+ERROR 2025-01-18 17:04:55,551 log 11900 33748 Internal Server Error: /favorites/music/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\featuredapp\views.py", line 24, in get
+    user = UserProfile.objects.get(user_id=user_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 635, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1495, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1307, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1772, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'user_id' into field. Choices are: date_joined, email, featuredalbum, featuredmusic, first_name, followers, groups, id, is_active, is_staff, is_superuser, last_login, last_name, likes, logentry, password, singer, user_permissions, user_ptr, user_ptr_id, username
+ERROR 2025-01-18 17:04:55,556 basehttp 11900 33748 "GET /favorites/music/ HTTP/1.1" 500 151460
+ERROR 2025-01-18 17:04:57,669 log 11900 32408 Internal Server Error: /favorites/music/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\featuredapp\views.py", line 24, in get
+    user = UserProfile.objects.get(user_id=user_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 635, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1495, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1307, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1772, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'user_id' into field. Choices are: date_joined, email, featuredalbum, featuredmusic, first_name, followers, groups, id, is_active, is_staff, is_superuser, last_login, last_name, likes, logentry, password, singer, user_permissions, user_ptr, user_ptr_id, username
+ERROR 2025-01-18 17:04:57,672 basehttp 11900 32408 "GET /favorites/music/ HTTP/1.1" 500 151619
+WARNING 2025-01-18 17:05:39,469 log 14384 27908 Unauthorized: /favorites/music/
+WARNING 2025-01-18 17:05:39,470 basehttp 14384 27908 "GET /favorites/music/ HTTP/1.1" 401 33
+WARNING 2025-01-18 17:12:09,811 log 37056 36744 Unauthorized: /favorites/music/
+WARNING 2025-01-18 17:12:09,811 basehttp 37056 36744 "GET /favorites/music/ HTTP/1.1" 401 58
+WARNING 2025-01-18 17:12:46,715 log 37056 23996 Not Found: /favorites/albums
+WARNING 2025-01-18 17:12:46,716 basehttp 37056 23996 "GET /favorites/albums HTTP/1.1" 404 3914
+WARNING 2025-01-18 17:13:13,312 log 37056 34940 Unauthorized: /favorites/album/
+WARNING 2025-01-18 17:13:13,313 basehttp 37056 34940 "GET /favorites/album/ HTTP/1.1" 401 58
+WARNING 2025-01-18 17:13:18,785 log 37056 1816 Not Found: /favorites/album/
+WARNING 2025-01-18 17:13:18,786 basehttp 37056 1816 "GET /favorites/album/ HTTP/1.1" 404 38
+ERROR 2025-01-18 17:36:30,624 log 39664 24868 Internal Server Error: /favorites/music
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/favorites/music/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-01-18 17:36:30,626 basehttp 39664 24868 "POST /favorites/music HTTP/1.1" 500 79573
+ERROR 2025-01-18 17:36:38,427 log 39664 42632 Internal Server Error: /favorites/music/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\featuredapp\views.py", line 56, in post
+    music = Music.objects.get(id=song_id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 649, in get
+    raise self.model.DoesNotExist(
+musicapp.models.Music.DoesNotExist: Music matching query does not exist.
+ERROR 2025-01-18 17:36:38,432 basehttp 39664 42632 "POST /favorites/music/ HTTP/1.1" 500 110690
+WARNING 2025-01-18 17:37:08,714 log 41288 39552 Not Found: /favorites/music/
+WARNING 2025-01-18 17:37:08,715 basehttp 41288 39552 "POST /favorites/music/ HTTP/1.1" 404 33
+WARNING 2025-01-18 17:52:16,961 log 40260 41660 Unauthorized: /favorites/album/
+WARNING 2025-01-18 17:52:16,962 basehttp 40260 41660 "POST /favorites/album/ HTTP/1.1" 401 58
+WARNING 2025-01-18 17:52:22,203 log 40260 41660 Not Found: /favorites/album/
+WARNING 2025-01-18 17:52:22,204 basehttp 40260 41660 "POST /favorites/album/ HTTP/1.1" 404 29
+WARNING 2025-01-18 20:15:15,257 log 43168 43988 Not Found: /favorites/album/
+WARNING 2025-01-18 20:15:15,259 basehttp 43168 43988 "POST /favorites/album/ HTTP/1.1" 404 32
+WARNING 2025-01-18 20:49:49,925 log 11816 43748 Not Found: /favorites/album/
+WARNING 2025-01-18 20:49:49,926 basehttp 11816 43748 "POST /favorites/album/ HTTP/1.1" 404 29
+WARNING 2025-01-18 20:50:35,157 log 31900 10076 Not Found: /favorites/album/
+WARNING 2025-01-18 20:50:35,158 basehttp 31900 10076 "POST /favorites/album/ HTTP/1.1" 404 29
+WARNING 2025-01-18 21:52:16,062 log 44476 6396 Not Found: /favorites/album/
+WARNING 2025-01-18 21:52:16,172 basehttp 44476 6396 "POST /favorites/album/ HTTP/1.1" 404 29
+ERROR 2025-01-18 21:56:22,573 log 44476 35304 Internal Server Error: /music/genre
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/music/genre/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-01-18 21:56:22,576 basehttp 44476 35304 "POST /music/genre HTTP/1.1" 500 80491
+WARNING 2025-01-18 21:57:05,987 log 46028 44312 Bad Request: /music/genre/
+WARNING 2025-01-18 21:57:05,987 basehttp 46028 44312 "POST /music/genre/ HTTP/1.1" 400 49
+WARNING 2025-01-18 21:57:37,969 log 46028 46008 Not Found: /music/genre/12/
+WARNING 2025-01-18 21:57:37,969 basehttp 46028 46008 "GET /music/genre/12/ HTTP/1.1" 404 29
+ERROR 2025-01-18 21:58:55,597 log 45224 39980 Internal Server Error: /music/genre/1
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/music/genre/1/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-01-18 21:58:55,599 basehttp 45224 39980 "PATCH /music/genre/1 HTTP/1.1" 500 80159
+ERROR 2025-01-18 22:03:56,382 log 41244 45000 Internal Server Error: /music
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/music/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-01-18 22:03:56,384 basehttp 41244 45000 "POST /music HTTP/1.1" 500 81241
+WARNING 2025-01-18 22:04:03,674 log 41244 35304 Unauthorized: /music/
+WARNING 2025-01-18 22:04:29,470 log 41244 35152 Bad Request: /music/
+WARNING 2025-01-18 22:04:29,471 basehttp 41244 35152 "POST /music/ HTTP/1.1" 400 33
+WARNING 2025-01-18 22:05:30,795 log 43532 44208 Not Found: /music/
+WARNING 2025-01-18 22:05:30,796 basehttp 43532 44208 "POST /music/ HTTP/1.1" 404 34
+WARNING 2025-01-18 22:05:59,330 log 45076 25116 Not Found: /music/
+WARNING 2025-01-18 22:05:59,330 basehttp 45076 25116 "POST /music/ HTTP/1.1" 404 34
+ERROR 2025-01-18 22:06:17,008 log 45076 25116 Internal Server Error: /music/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: Œÿ»¡ ¿:  ÒÚÓÎ·Âˆ "listens" ‚ Ú‡·ÎËˆÂ "musicapp_music" ÌÂ ÒÛ˘ÂÒÚ‚ÛÂÚ
+LINE 1: ...se_date", "audio_file", "duration", "is_deleted", "listens")...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\musicapp\views.py", line 86, in post
+    serializer.save(singer=_singer, duration=duration, genre=genre)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 989, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\base.py", line 822, in save
+    self.save_base(
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\base.py", line 909, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\base.py", line 1071, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\base.py", line 1112, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: Œÿ»¡ ¿:  ÒÚÓÎ·Âˆ "listens" ‚ Ú‡·ÎËˆÂ "musicapp_music" ÌÂ ÒÛ˘ÂÒÚ‚ÛÂÚ
+LINE 1: ...se_date", "audio_file", "duration", "is_deleted", "listens")...
+                                                             ^
+
+ERROR 2025-01-18 22:06:17,018 basehttp 45076 25116 "POST /music/ HTTP/1.1" 500 206808
+ERROR 2025-01-18 22:07:11,894 log 44576 26716 Internal Server Error: /music/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: Œÿ»¡ ¿:  ÒÚÓÎ·Âˆ "listens" ‚ Ú‡·ÎËˆÂ "musicapp_music" ÌÂ ÒÛ˘ÂÒÚ‚ÛÂÚ
+LINE 1: ...se_date", "audio_file", "duration", "is_deleted", "listens")...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\musicapp\views.py", line 86, in post
+    serializer.save(singer=_singer, duration=duration, genre=genre)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 989, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\base.py", line 822, in save
+    self.save_base(
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\base.py", line 909, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\base.py", line 1071, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\base.py", line 1112, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: Œÿ»¡ ¿:  ÒÚÓÎ·Âˆ "listens" ‚ Ú‡·ÎËˆÂ "musicapp_music" ÌÂ ÒÛ˘ÂÒÚ‚ÛÂÚ
+LINE 1: ...se_date", "audio_file", "duration", "is_deleted", "listens")...
+                                                             ^
+
+ERROR 2025-01-18 22:07:11,905 basehttp 44576 26716 "POST /music/ HTTP/1.1" 500 207127
+ERROR 2025-01-18 22:10:11,327 log 36512 47052 Internal Server Error: /music/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: Œÿ»¡ ¿:  ÁÌ‡˜ÂÌËÂ NULL ‚ ÒÚÓÎ·ˆÂ "views" ÓÚÌÓ¯ÂÌËˇ "musicapp_music" Ì‡Û¯‡ÂÚ Ó„‡ÌË˜ÂÌËÂ NOT NULL
+DETAIL:  Œ¯Ë·Ó˜Ì‡ˇ ÒÚÓÍ‡ ÒÓ‰ÂÊËÚ (1, Cry, 2025-01-18, music_files/d4vd_-_Here_With_Me_co82EOI.mp3, 00:04:02, f, null, null, 1, 0).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\musicapp\views.py", line 86, in post
+    serializer.save(singer=_singer, duration=duration, genre=genre)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 989, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\base.py", line 822, in save
+    self.save_base(
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\base.py", line 909, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\base.py", line 1071, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\base.py", line 1112, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: Œÿ»¡ ¿:  ÁÌ‡˜ÂÌËÂ NULL ‚ ÒÚÓÎ·ˆÂ "views" ÓÚÌÓ¯ÂÌËˇ "musicapp_music" Ì‡Û¯‡ÂÚ Ó„‡ÌË˜ÂÌËÂ NOT NULL
+DETAIL:  Œ¯Ë·Ó˜Ì‡ˇ ÒÚÓÍ‡ ÒÓ‰ÂÊËÚ (1, Cry, 2025-01-18, music_files/d4vd_-_Here_With_Me_co82EOI.mp3, 00:04:02, f, null, null, 1, 0).
+
+ERROR 2025-01-18 22:10:11,337 basehttp 36512 47052 "POST /music/ HTTP/1.1" 500 206748
+ERROR 2025-01-18 22:10:41,418 log 36512 47052 Internal Server Error: /music/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\musicapp\views.py", line 86, in post
+    serializer.save(singer=_singer, duration=duration, genre=genre)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 1014, in create
+    field.set(value)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 1273, in set
+    objs = tuple(objs)
+           ^^^^^^^^^^^
+TypeError: 'Genre' object is not iterable
+ERROR 2025-01-18 22:10:41,421 basehttp 36512 47052 "POST /music/ HTTP/1.1" 500 125853
+ERROR 2025-01-18 22:11:32,147 log 45532 46692 Internal Server Error: /music/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\musicapp\views.py", line 86, in post
+    serializer.save(singer=_singer, duration=duration, genre=genre)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 1014, in create
+    field.set(value)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 1273, in set
+    objs = tuple(objs)
+           ^^^^^^^^^^^
+TypeError: 'Genre' object is not iterable
+ERROR 2025-01-18 22:11:32,154 basehttp 45532 46692 "POST /music/ HTTP/1.1" 500 125853
+ERROR 2025-01-18 22:15:23,740 log 46132 44068 Internal Server Error: /music/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 81, in inner
+    return func(*args, **kwds)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\musicapp\views.py", line 84, in post
+    data=serializer.data,
+         ^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 571, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 538, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\fields.py", line 1272, in to_representation
+    assert not isinstance(value, datetime.datetime), (
+AssertionError: Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.
+ERROR 2025-01-18 22:15:23,747 basehttp 46132 44068 "POST /music/ HTTP/1.1" 500 130321
+ERROR 2025-01-18 22:39:37,088 log 48336 48708 Internal Server Error: /music/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 81, in inner
+    return func(*args, **kwds)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\musicapp\views.py", line 103, in post
+    data=serializer.data,
+         ^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 571, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\serializers.py", line 538, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\fields.py", line 1272, in to_representation
+    assert not isinstance(value, datetime.datetime), (
+AssertionError: Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.
+ERROR 2025-01-18 22:39:37,099 basehttp 48336 48708 "POST /music/ HTTP/1.1" 500 130501
+ERROR 2025-01-18 22:46:11,871 log 50928 47632 Internal Server Error: /music/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
+    return int(value)
+           ^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '[2]'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 81, in inner
+    return func(*args, **kwds)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\musicapp\views.py", line 76, in post
+    genres = Genre.objects.filter(pk__in=genre_ids)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1559, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1389, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\lookups.py", line 30, in __init__
+    self.rhs = self.get_prep_lookup()
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\lookups.py", line 484, in get_prep_lookup
+    return super().get_prep_lookup()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\lookups.py", line 299, in get_prep_lookup
+    rhs_value = self.lhs.output_field.get_prep_value(rhs_value)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got '[2]'.
+ERROR 2025-01-18 22:46:11,894 basehttp 50928 47632 "POST /music/ HTTP/1.1" 500 170700
+ERROR 2025-01-18 22:52:01,858 log 47540 39984 Internal Server Error: /music/album/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AlbumList.get() takes 1 positional argument but 2 were given
+ERROR 2025-01-18 22:52:01,861 basehttp 47540 39984 "GET /music/album/ HTTP/1.1" 500 98263

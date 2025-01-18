@@ -8,6 +8,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
+from musicapp.models import (Music,
+                             Album)
 from utils.tokens import get_user_id_from_token
 from .serializers import *
 
@@ -16,12 +18,12 @@ logger = logging.getLogger("featuredapp.views")
 
 class FeaturedMusicList(APIView):
     authentication_classes = (JWTAuthentication,)
-    permission_classes = (permissions.AllowAny,)
+    permission_classes = (permissions.IsAuthenticated,)
 
     def get(self, request):
         user_id = get_user_id_from_token(request)
         try:
-            user = UserProfile.objects.get(user_id=user_id)
+            user = UserProfile.objects.get(id=user_id)
         except UserProfile.DoesNotExist:
             logger.warning(f"User with id {user_id} does not exist")
             return Response(
@@ -44,8 +46,22 @@ class FeaturedMusicList(APIView):
 
     def post(self, request):
         user_id = get_user_id_from_token(request)
-        user = UserProfile.objects.get(user_id=user_id)
-        serializer = FeaturedMusicSerializer(data=request.data)
+        user = UserProfile.objects.get(id=user_id)
+        song_id = request.data.get('song_id', )
+        if not song_id:
+            return Response(
+                data={'message': 'Song id not found'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        try:
+            music = Music.objects.get(id=song_id)
+        except Music.DoesNotExist:
+            return Response(
+                data={'message': 'Song does not exist'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        serializer = FeaturedMusicSerializer(music=music)
         if serializer.is_valid():
             serializer.save(user=user)
             return Response(
@@ -61,11 +77,11 @@ class FeaturedMusicList(APIView):
 
 class FeaturedMusicDetail(APIView):
     authentication_classes = (JWTAuthentication,)
-    permission_classes = (permissions.AllowAny,)
+    permission_classes = (permissions.IsAuthenticated,)
 
     def get_object(self, pk, request):
         user_id = get_user_id_from_token(request)
-        user = UserProfile.objects.get(user_id=user_id)
+        user = UserProfile.objects.get(id=user_id)
         return get_object_or_404(FeaturedMusic, id=pk, user=user)
 
     def get(self, request, pk):
@@ -103,12 +119,12 @@ class FeaturedMusicDetail(APIView):
 
 class FeaturedAlbumList(APIView):
     authentication_classes = (JWTAuthentication, )
-    permission_classes = (permissions.AllowAny,)
+    permission_classes = (permissions.IsAuthenticated,)
 
     def get(self, request):
         user_id = get_user_id_from_token(request)
         try:
-            user = UserProfile.objects.get(user_id=user_id)
+            user = UserProfile.objects.get(id=user_id)
         except UserProfile.DoesNotExist:
             logger.warning(f"User with id {user_id} does not exist")
             return Response(
@@ -131,7 +147,7 @@ class FeaturedAlbumList(APIView):
     def post(self, request):
         user_id = get_user_id_from_token(request)
         try:
-            user = UserProfile.objects.get(user_id=user_id)
+            user = UserProfile.objects.get(id=user_id)
         except UserProfile.DoesNotExist:
             logger.warning(f"User with id {user_id} does not exist")
             return Response(
@@ -139,7 +155,22 @@ class FeaturedAlbumList(APIView):
                 status=status.HTTP_401_UNAUTHORIZED
             )
 
-        serializer = FeaturedAlbumSerializer(data=request.data)
+        album_id = request.data.get("album_id", )
+        if not album_id:
+            return Response(
+                data={'message': 'Album id not found'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        try:
+            album = Album.objects.get(id=album_id)
+        except Album.DoesNotExist:
+            return Response(
+                data={"message": "Album not found"},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        serializer = FeaturedAlbumSerializer(album=album)
         if serializer.is_valid():
             serializer.save(user=user)
             return Response(
@@ -155,11 +186,11 @@ class FeaturedAlbumList(APIView):
 
 class FeaturedAlbumDetail(APIView):
     authentication_classes = (JWTAuthentication, )
-    permission_classes = (permissions.AllowAny,)
+    permission_classes = (permissions.IsAuthenticated,)
 
     def get_object(self, pk, request):
         user_id = get_user_id_from_token(request)
-        user = UserProfile.objects.get(user_id=user_id)
+        user = UserProfile.objects.get(id=user_id)
         return get_object_or_404(FeaturedAlbum, id=pk, user=user)
 
     def get(self, request, pk):

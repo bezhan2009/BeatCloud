@@ -12,7 +12,7 @@ from musicapp.models import Music
 from utils.tokens import get_user_id_from_token
 from .serializers import *
 
-logger = logging.getLogger("subscriptions.views")
+logger = logging.getLogger("subscriptions.listens")
 
 
 class FollowersList(APIView):
@@ -21,7 +21,7 @@ class FollowersList(APIView):
 
     def get(self, request):
         user_id = get_user_id_from_token(request)
-        user = UserProfile.objects.get(id=user_id)
+        user = UserProfile.objects.get(,
         followers = Followers.objects.filter(user=user)
         if not followers:
             return Response(
@@ -36,7 +36,7 @@ class FollowersList(APIView):
 
     def post(self, request):
         user_id = get_user_id_from_token(request)
-        user = UserProfile.objects.get(id=user_id)
+        user = UserProfile.objects.get(,
         serializer = FollowersSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user=user)
@@ -57,7 +57,7 @@ class FollowersDetail(APIView):
 
     def get_object(self, pk):
         user_id = get_user_id_from_token(self.request)
-        user = UserProfile.objects.get(id=user_id)
+        user = UserProfile.objects.get(,
         return get_object_or_404(Followers, pk=pk, user=user)
 
     def get(self, request, pk):
@@ -97,7 +97,7 @@ class LikesList(APIView):
 
     def get(self, request):
         user_id = get_user_id_from_token(request)
-        user = UserProfile.objects.get(id=user_id)
+        user = UserProfile.objects.get(,
         likes = Likes.objects.filter(user=user)
         if not likes:
             return Response(
@@ -113,7 +113,7 @@ class LikesList(APIView):
 
     def post(self, request):
         user_id = get_user_id_from_token(request)
-        user = UserProfile.objects.get(id=user_id)
+        user = UserProfile.objects.get(,
         serializer = LikesSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user=user)
@@ -134,7 +134,7 @@ class LikesDetail(APIView):
 
     def get_object(self, pk):
         user_id = get_user_id_from_token(self.request)
-        user = UserProfile.objects.get(id=user_id)
+        user = UserProfile.objects.get(,
         return get_object_or_404(Likes, pk=pk, user=user)
 
     def get(self, request, pk):

@@ -34,12 +34,18 @@ class UserProfileList(APIView):
             user = UserProfile.objects.create_user(**data)
             refresh = RefreshToken.for_user(user)
             logger.info(f"New user created with ID {user.id}.")
-            return Response({
-                'refresh': str(refresh),
-                'access': str(refresh.access_token),
-                'user_id': user.id
-            })
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                data={
+                    'refresh': str(refresh),
+                    'access': str(refresh.access_token),
+                    'user_id': user.id
+                }, status=status.HTTP_201_CREATED
+            )
+
+        return Response(
+            data=serializer.errors,
+            status=status.HTTP_400_BAD_REQUEST
+        )
 
 
 class UserProfileDetails(APIView):
@@ -63,10 +69,16 @@ class UserProfileDetails(APIView):
             logger.info(f"User with ID {user_id} retrieved successfully.")
         except UserProfile.DoesNotExist:
             logger.warning(f"Failed to retrieve user. User with ID {user_id} not found.")
-            return Response({"message": "User Not Found"}, status=404)
+            return Response(
+                data={"message": "User Not Found"},
+                status=status.HTTP_403_FORBIDDEN
+            )
 
         serializer = UserProfileSerializer(user, many=False)
-        return Response(serializer.data, status=200)
+        return Response(
+            data=serializer.data,
+            status=status.HTTP_200_OK
+        )
 
     @swagger_auto_schema(
         request_body=openapi.Schema(
@@ -89,14 +101,26 @@ class UserProfileDetails(APIView):
             logger.info(f"Attempting to update user with ID {user_id}.")
         except UserProfile.DoesNotExist:
             logger.warning(f"Failed to update user. User with ID {user_id} not found.")
-            return Response({"message": "User Not Found."}, status=404)
+            return Response(
+                data={"message": "User Not Found."},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
 
         serializer = UserProfileSerializer(user, data=request.data, partial=True)
         if 'password' in request.data or 'is_deleted' in request.data or 'is_superuser' in request.data:
-            return Response({"message": "Changing password, is_superuser is not allowed."}, status=403)
+            return Response(
+                data={"message": "Changing password, is_superuser is not allowed."},
+                status=status.HTTP_403_FORBIDDEN
+            )
         if serializer.is_valid():
             serializer.save()
             logger.info(f"User with ID {user_id} updated successfully.")
-            return Response(serializer.data, status=200)
+            return Response(
+                data=serializer.data,
+                status=status.HTTP_200_OK
+            )
         logger.error(f"Failed to update user with ID {user_id}: {serializer.errors}")
-        return Response(serializer.errors, status=401)
+        return Response(
+            data=serializer.errors,
+            status=status.HTTP_400_BAD_REQUEST
+        )
