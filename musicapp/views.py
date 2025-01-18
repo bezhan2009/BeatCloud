@@ -20,6 +20,10 @@ class MusicList(APIView):
 
     def get(self, request):
         music_list = Music.objects.all()
+        if not music_list:
+            return Response(
+                data={'message': 'No music found'},
+                status=status.HTTP_200_OK)
         serializer = MusicSerializer(music_list, many=True)
         return Response(
                         data=serializer.data,

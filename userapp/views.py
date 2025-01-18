@@ -21,8 +21,6 @@ class UserProfileList(APIView):
             'username': openapi.Schema(type=openapi.TYPE_STRING),
             'password': openapi.Schema(type=openapi.TYPE_STRING),
             'email': openapi.Schema(type=openapi.TYPE_STRING),
-            'age': openapi.Schema(type=openapi.TYPE_INTEGER),
-            'is_admin': openapi.Schema(type=openapi.TYPE_BOOLEAN, default=False),
         }
     ))
     def post(self, request):
@@ -30,8 +28,6 @@ class UserProfileList(APIView):
             'username': request.data['username'],
             'password': request.data['password'],
             'email': request.data['email'],
-            'age': request.data['age'],
-            'is_admin': request.data['is_admin'],
         }
         serializer = UserProfileSerializer(data=data)
         if serializer.is_valid():

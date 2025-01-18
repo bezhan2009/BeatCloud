@@ -18,7 +18,7 @@ BeatCloud is a modern music streaming application built with Django. It offers a
 
 - **User Authentication & Authorization:** Secure access with JWT.
 - **Music Management:** Upload, manage, and stream your favorite tracks.
-- **Artist & Album Management:** Organize music by artists and albums.
+- **Singer & Album Management:** Organize music by artists and albums.
 - **Genre Classification:** Categorize music by genres.
 - **Cloud Storage:** Store music files securely using Google Cloud Storage.
 

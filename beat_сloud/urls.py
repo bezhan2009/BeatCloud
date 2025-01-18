@@ -46,4 +46,6 @@ urlpatterns = [
 
     path('auth/', include("userapp.urls")),
     path('music/', include("musicapp.urls")),
+
+    path('favorites/', include("featuredapp.urls"))
 ]
