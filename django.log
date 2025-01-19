@@ -2467,3 +2467,101 @@ Traceback (most recent call last):
     raise FieldError(
 django.core.exceptions.FieldError: Cannot resolve keyword 'user' into field. Choices are: album, comment, cover_image, id, release_date, singer, singer_id, songs, title
 ERROR 2025-01-19 13:19:29,783 basehttp 52368 55992 "GET /favorites/album/1/ HTTP/1.1" 500 152909
+WARNING 2025-01-19 13:28:45,978 log 53344 33100 Not Found: /favorites/album/2/
+WARNING 2025-01-19 13:28:45,980 basehttp 53344 33100 "GET /favorites/album/2/ HTTP/1.1" 404 38
+WARNING 2025-01-19 13:29:17,704 log 53344 33100 Unauthorized: /favorites/album/1/
+WARNING 2025-01-19 13:29:17,705 basehttp 53344 33100 "DELETE /favorites/album/1/ HTTP/1.1" 401 58
+WARNING 2025-01-19 13:29:25,528 log 53344 33100 Not Found: /favorites/album/1/
+WARNING 2025-01-19 13:29:25,529 basehttp 53344 33100 "DELETE /favorites/album/1/ HTTP/1.1" 404 38
+ERROR 2025-01-19 18:29:15,074 log 10896 5516 Internal Server Error: /comments/music/1/
+ERROR 2025-01-19 18:29:15,075 basehttp 10896 5516 "GET /comments/music/1/ HTTP/1.1" 500 53
+ERROR 2025-01-19 18:30:51,015 log 11792 10464 Internal Server Error: /comments/music/1/
+ERROR 2025-01-19 18:30:51,016 basehttp 11792 10464 "GET /comments/music/1/ HTTP/1.1" 500 81
+ERROR 2025-01-19 18:30:57,484 log 11792 9308 Internal Server Error: /comments/music/1/
+ERROR 2025-01-19 18:30:57,485 basehttp 11792 9308 "GET /comments/music/1/ HTTP/1.1" 500 81
+ERROR 2025-01-19 18:31:37,106 log 3080 784 Internal Server Error: /comments/music/1/
+ERROR 2025-01-19 18:31:37,107 basehttp 3080 784 "GET /comments/music/1/ HTTP/1.1" 500 81
+ERROR 2025-01-19 18:31:38,813 log 3080 9360 Internal Server Error: /comments/music/1/
+ERROR 2025-01-19 18:31:38,813 basehttp 3080 9360 "GET /comments/music/1/ HTTP/1.1" 500 81
+ERROR 2025-01-19 18:31:40,363 log 3080 1816 Internal Server Error: /comments/music/1/
+ERROR 2025-01-19 18:31:40,363 basehttp 3080 1816 "GET /comments/music/1/ HTTP/1.1" 500 81
+ERROR 2025-01-19 18:31:47,390 log 4072 5516 Internal Server Error: /comments/music/1/
+ERROR 2025-01-19 18:31:47,391 basehttp 4072 5516 "GET /comments/music/1/ HTTP/1.1" 500 81
+WARNING 2025-01-19 18:34:58,763 log 7532 11912 Not Found: /comments/music/1/
+WARNING 2025-01-19 18:34:58,763 basehttp 7532 11912 "GET /comments/music/1/ HTTP/1.1" 404 29
+ERROR 2025-01-19 18:37:33,881 log 4220 12536 Internal Server Error: /comments/album/2/
+ERROR 2025-01-19 18:37:33,881 basehttp 4220 12536 "GET /comments/album/2/ HTTP/1.1" 500 61
+WARNING 2025-01-19 18:38:58,585 log 10732 2128 Unauthorized: /comments/1/detail/
+WARNING 2025-01-19 18:38:58,585 basehttp 10732 2128 "GET /comments/1/detail/ HTTP/1.1" 401 58
+WARNING 2025-01-19 18:39:40,730 log 10732 11000 Method Not Allowed: /comments/1/detail/
+WARNING 2025-01-19 18:39:40,731 basehttp 10732 11000 "GET /comments/1/detail/ HTTP/1.1" 405 40
+WARNING 2025-01-19 18:39:54,386 log 10732 13604 Method Not Allowed: /comments/1/detail/
+WARNING 2025-01-19 18:39:54,386 basehttp 10732 13604 "GET /comments/1/detail/ HTTP/1.1" 405 40
+WARNING 2025-01-19 18:39:59,569 log 10732 13708 Method Not Allowed: /comments/1/detail/
+WARNING 2025-01-19 18:39:59,569 basehttp 10732 13708 "GET /comments/1/detail/ HTTP/1.1" 405 40
+WARNING 2025-01-19 18:40:04,949 log 10732 13708 Not Found: /comments/1/detail/
+WARNING 2025-01-19 18:40:04,950 basehttp 10732 13708 "DELETE /comments/1/detail/ HTTP/1.1" 404 31
+ERROR 2025-01-19 18:40:45,314 log 10732 13708 Internal Server Error: /comments/music/2
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/comments/music/2/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-01-19 18:40:45,317 basehttp 10732 13708 "POST /comments/music/2 HTTP/1.1" 500 80571
+ERROR 2025-01-19 18:41:07,517 log 10732 14208 Internal Server Error: /comments/music/2/
+ERROR 2025-01-19 18:41:07,517 basehttp 10732 14208 "POST /comments/music/2/ HTTP/1.1" 500 56
+WARNING 2025-01-19 18:44:40,679 log 4536 11244 Not Found: /comments/music/2/
+WARNING 2025-01-19 18:44:40,680 basehttp 4536 11244 "POST /comments/music/2/ HTTP/1.1" 404 38
+ERROR 2025-01-19 18:44:56,459 log 4536 11244 Internal Server Error: /comments/music/2/
+ERROR 2025-01-19 18:44:56,459 basehttp 4536 11244 "POST /comments/music/2/ HTTP/1.1" 500 56
+WARNING 2025-01-19 18:48:01,705 log 9248 10820 Bad Request: /comments/music/2/
+WARNING 2025-01-19 18:48:01,706 basehttp 9248 10820 "POST /comments/music/2/ HTTP/1.1" 400 38
+ERROR 2025-01-19 18:50:24,904 log 11432 5360 Internal Server Error: /comments/album/2
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/comments/album/2/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-01-19 18:50:24,906 basehttp 11432 5360 "POST /comments/album/2 HTTP/1.1" 500 80564
+WARNING 2025-01-19 18:50:29,645 log 11432 9308 Bad Request: /comments/album/2/
+WARNING 2025-01-19 18:50:29,645 basehttp 11432 9308 "POST /comments/album/2/ HTTP/1.1" 400 81
+WARNING 2025-01-19 18:51:58,949 log 13652 1912 Bad Request: /comments/album/2/
+WARNING 2025-01-19 18:51:58,950 basehttp 13652 1912 "POST /comments/album/2/ HTTP/1.1" 400 38
+ERROR 2025-01-19 19:01:48,380 log 14320 14180 Internal Server Error: /comments/album/2/
+ERROR 2025-01-19 19:01:48,380 basehttp 14320 14180 "GET /comments/album/2/ HTTP/1.1" 500 13
+ERROR 2025-01-19 19:01:55,110 log 14320 10976 Internal Server Error: /comments/album/2/
+ERROR 2025-01-19 19:01:55,111 basehttp 14320 10976 "GET /comments/album/2/ HTTP/1.1" 500 13
+WARNING 2025-01-19 19:03:12,786 log 14320 14764 Bad Request: /comments/album/2/
+WARNING 2025-01-19 19:03:12,787 basehttp 14320 14764 "POST /comments/album/2/ HTTP/1.1" 400 38
+WARNING 2025-01-19 19:06:43,522 log 14448 9352 Bad Request: /comments/album/2/
+WARNING 2025-01-19 19:06:43,523 basehttp 14448 9352 "POST /comments/album/2/ HTTP/1.1" 400 56
+ERROR 2025-01-19 19:07:08,339 log 14448 7532 Internal Server Error: /comments/album/2/
+ERROR 2025-01-19 19:07:08,339 basehttp 14448 7532 "GET /comments/album/2/ HTTP/1.1" 500 14
+ERROR 2025-01-19 19:07:49,389 log 14416 5172 Internal Server Error: /comments/album/2/
+ERROR 2025-01-19 19:07:49,390 basehttp 14416 5172 "GET /comments/album/2/ HTTP/1.1" 500 14
+WARNING 2025-01-19 19:08:23,460 log 14416 5172 Bad Request: /comments/album/2/
+WARNING 2025-01-19 19:08:23,461 basehttp 14416 5172 "POST /comments/album/2/ HTTP/1.1" 400 58
+WARNING 2025-01-19 19:09:15,083 log 1292 11048 Bad Request: /comments/album/2/
+WARNING 2025-01-19 19:09:15,084 basehttp 1292 11048 "POST /comments/album/2/ HTTP/1.1" 400 58
+WARNING 2025-01-19 19:09:50,987 log 13864 13720 Bad Request: /comments/album/2/
+WARNING 2025-01-19 19:09:50,987 basehttp 13864 13720 "POST /comments/album/2/ HTTP/1.1" 400 58
+WARNING 2025-01-19 19:09:53,479 log 13864 13720 Bad Request: /comments/album/2/
+WARNING 2025-01-19 19:09:53,480 basehttp 13864 13720 "POST /comments/album/2/ HTTP/1.1" 400 58
+WARNING 2025-01-19 19:10:07,343 log 13864 13720 Not Found: /comments/album/2/
+WARNING 2025-01-19 19:10:07,344 basehttp 13864 13720 "POST /comments/album/2/ HTTP/1.1" 404 38
