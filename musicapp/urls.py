@@ -10,4 +10,5 @@ urlpatterns = [
     path('genre/', views.GenreList.as_view(), name="Genre List"),
     path('genre/<int:pk>/', views.GenreDetail.as_view(), name="Genre Detail"),
     path('album/', views.AlbumList.as_view(), name="Album List"),
+    path('album/<int:pk>/', views.AlbumDetail.as_view(), name="Album Detail"),
 ]

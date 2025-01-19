@@ -10,6 +10,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from musicapp.models import (Music,
                              Album)
+from singerapp.models import Singer
 from utils.tokens import get_user_id_from_token
 from .serializers import *
 
@@ -31,7 +32,7 @@ class FeaturedMusicList(APIView):
                 status=status.HTTP_401_UNAUTHORIZED
             )
 
-        featured_music_list = FeaturedMusic.objects.filter(user=user)
+        featured_music_list = FeaturedMusic.objects.prefetch_related("music").filter(user=user)
         if not featured_music_list:
             return Response(
                 data={'message': 'No music found'},
@@ -61,9 +62,15 @@ class FeaturedMusicList(APIView):
                 status=status.HTTP_404_NOT_FOUND
             )
 
-        serializer = FeaturedMusicSerializer(music=music)
+        if FeaturedMusic.objects.filter(user=user, music=music):
+            return Response(
+                data={'message': 'Music is already in your favorites'},
+                status=status.HTTP_200_OK
+            )
+
+        serializer = FeaturedMusicSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save(user=user)
+            serializer.save(user=user, music=music)
             return Response(
                 data={"message": "Music added to favorites successfully"},
                 status=status.HTTP_201_CREATED
@@ -82,14 +89,13 @@ class FeaturedMusicDetail(APIView):
     def get_object(self, pk, request):
         user_id = get_user_id_from_token(request)
         user = UserProfile.objects.get(id=user_id)
-        return get_object_or_404(FeaturedMusic, id=pk, user=user)
+        return FeaturedMusic.objects.prefetch_related("music").get(id=pk, user=user)
 
     def get(self, request, pk):
-
         try:
             featured_music = self.get_object(pk, request)
             serializer = FeaturedMusicSerializer(featured_music)
-        except Http404:
+        except FeaturedMusic.DoesNotExist:
             return Response(
                 data={'message': 'Featured Music not found'},
                 status=status.HTTP_404_NOT_FOUND
@@ -103,7 +109,7 @@ class FeaturedMusicDetail(APIView):
     def delete(self, request, pk):
         try:
             featured_music = self.get_object(pk, request)
-        except Http404:
+        except FeaturedMusic.DoesNotExist:
             return Response(
                 data={'message': 'Featured Music not found'},
                 status=status.HTTP_404_NOT_FOUND
@@ -132,11 +138,11 @@ class FeaturedAlbumList(APIView):
                 status=status.HTTP_401_UNAUTHORIZED
             )
 
-        featured_albums = FeaturedAlbum.objects.filter(user=user)
+        featured_albums = FeaturedAlbum.objects.prefetch_related("album").filter(user=user)
         if not featured_albums:
             return Response(
                 data={'message': 'No featured albums found'},
-                status=status.HTTP_404_NOT_FOUND
+                status=status.HTTP_200_OK
             )
         serializer = FeaturedAlbumSerializer(featured_albums, many=True)
         return Response(
@@ -170,9 +176,15 @@ class FeaturedAlbumList(APIView):
                 status=status.HTTP_404_NOT_FOUND
             )
 
-        serializer = FeaturedAlbumSerializer(album=album)
+        if FeaturedAlbum.objects.filter(user=user, album=album):
+            return Response(
+                data={"message": "Album is already in your favorites"},
+                status=status.HTTP_200_OK
+            )
+
+        serializer = FeaturedAlbumSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save(user=user)
+            serializer.save(user=user, album=album)
             return Response(
                 data={"message": "Album added to favorites successfully"},
                 status=status.HTTP_201_CREATED
@@ -190,14 +202,24 @@ class FeaturedAlbumDetail(APIView):
 
     def get_object(self, pk, request):
         user_id = get_user_id_from_token(request)
-        user = UserProfile.objects.get(id=user_id)
-        return get_object_or_404(FeaturedAlbum, id=pk, user=user)
+        try:
+            user = UserProfile.objects.get(id=user_id)
+        except UserProfile.DoesNotExist:
+            return Response(
+                data={'message': 'User does not exist'},
+                status=status.HTTP_401_UNAUTHORIZED
+            ), 0
+
+        return FeaturedAlbum.objects.prefetch_related("album").get(id=pk, user=user), 1
 
     def get(self, request, pk):
         try:
-            featured_album = self.get_object(pk, request)
+            featured_album, is_success = self.get_object(pk, request)
+            if not is_success:
+                return featured_album
+
             serializer = FeaturedAlbumSerializer(featured_album)
-        except Http404:
+        except FeaturedAlbum.DoesNotExist:
             return Response(
                 data={'message': 'Featured Album not found'},
                 status=status.HTTP_404_NOT_FOUND
@@ -210,8 +232,10 @@ class FeaturedAlbumDetail(APIView):
 
     def delete(self, request, pk):
         try:
-            featured_album = self.get_object(pk, request)
-        except Http404:
+            featured_album, is_success = self.get_object(pk, request)
+            if not is_success:
+                return featured_album
+        except FeaturedAlbum.DoesNotExist:
             return Response(
                 data={'message': 'Featured Album not found'},
                 status=status.HTTP_404_NOT_FOUND

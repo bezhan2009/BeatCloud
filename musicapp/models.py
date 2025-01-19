@@ -25,7 +25,8 @@ class Genre(models.Model):
 class Music(models.Model):
     title = models.CharField(max_length=30)
     singer = models.ForeignKey(Singer, on_delete=models.CASCADE)
-    album = models.ForeignKey(Album, on_delete=models.CASCADE, blank=True, null=True)
+    album = models.ForeignKey(Album, on_delete=models.CASCADE, blank=True, null=True,
+                              related_name="songs")
     genre = models.ManyToManyField(Genre, blank=True)
     release_date = models.DateField(blank=True, null=True, default=timezone.now)
     audio_file = models.FileField(upload_to='music_files/')
