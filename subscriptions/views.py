@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from userapp.models import UserProfile
+from singerapp.models import Singer
 from musicapp.models import Music
 from utils.tokens import get_user_id_from_token
 from .serializers import *
@@ -21,7 +22,7 @@ class FollowersList(APIView):
 
     def get(self, request):
         user_id = get_user_id_from_token(request)
-        user = UserProfile.objects.get(,
+        user = UserProfile.objects.get(id=user_id)
         followers = Followers.objects.filter(user=user)
         if not followers:
             return Response(
@@ -36,7 +37,7 @@ class FollowersList(APIView):
 
     def post(self, request):
         user_id = get_user_id_from_token(request)
-        user = UserProfile.objects.get(,
+        user = UserProfile.objects.get(id=user_id)
         serializer = FollowersSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user=user)
@@ -57,8 +58,12 @@ class FollowersDetail(APIView):
 
     def get_object(self, pk):
         user_id = get_user_id_from_token(self.request)
-        user = UserProfile.objects.get(,
-        return get_object_or_404(Followers, pk=pk, user=user)
+        user = UserProfile.objects.get(id=user_id)
+        try:
+            singer = Singer.objects.get(user=user)
+        except Singer.DoesNotExist:
+            raise Singer.DoesNotExist
+        return get_object_or_404(Followers, pk=pk, singer=singer)
 
     def get(self, request, pk):
         try:
@@ -67,6 +72,11 @@ class FollowersDetail(APIView):
             return Response(
                 data={"message": "Follower not found"},
                 status=status.HTTP_404_NOT_FOUND
+            )
+        except Singer.DoesNotExist:
+            return Response(
+                data={"message": "Please Register as a singer"},
+                status=status.HTTP_403_FORBIDDEN
             )
 
         serializer = FollowersSerializer(follower)
@@ -97,7 +107,7 @@ class LikesList(APIView):
 
     def get(self, request):
         user_id = get_user_id_from_token(request)
-        user = UserProfile.objects.get(,
+        user = UserProfile.objects.get(id=user_id)
         likes = Likes.objects.filter(user=user)
         if not likes:
             return Response(
@@ -113,7 +123,7 @@ class LikesList(APIView):
 
     def post(self, request):
         user_id = get_user_id_from_token(request)
-        user = UserProfile.objects.get(,
+        user = UserProfile.objects.get(id=user_id)
         serializer = LikesSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user=user)
@@ -134,7 +144,7 @@ class LikesDetail(APIView):
 
     def get_object(self, pk):
         user_id = get_user_id_from_token(self.request)
-        user = UserProfile.objects.get(,
+        user = UserProfile.objects.get(id=user_id)
         return get_object_or_404(Likes, pk=pk, user=user)
 
     def get(self, request, pk):

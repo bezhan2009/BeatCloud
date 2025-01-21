@@ -23,11 +23,13 @@ def get_release_date(request):
 
 def get_audio_info(request, handle_uploaded_file, Album, Genre, music_obj=None, is_patch_method: bool = False):
     uploaded_file = request.FILES.get('audio_file', )
-    if not uploaded_file and not is_patch_method:
-        return Response(
-            data={"message": "Audio not uploaded."},
-            status=status.HTTP_400_BAD_REQUEST
-        ), None, None, None, None
+    print(uploaded_file)
+    if not is_patch_method:
+        if not uploaded_file:
+            return Response(
+                data={"message": "Audio not uploaded."},
+                status=status.HTTP_400_BAD_REQUEST
+            ), None, None, None, None
     if uploaded_file:
         try:
             duration = handle_uploaded_file(uploaded_file)

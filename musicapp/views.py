@@ -1,21 +1,19 @@
 import logging
-import datetime
 
-from datetime import date
+from django.db import transaction
 from django.shortcuts import get_object_or_404, Http404
 from rest_framework import permissions
-from django.db import transaction
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from userapp.models import UserProfile
-from utils.tokens import get_user_id_from_token
-from utils.music_duration import handle_uploaded_file
 from utils.featured_music import delete_featured_music
 from utils.music import (get_release_date,
                          get_audio_info)
+from utils.music_duration import handle_uploaded_file
+from utils.tokens import get_user_id_from_token
 from .serializers import *
 
 logger = logging.getLogger('musicapp.views')
@@ -54,7 +52,7 @@ class MusicList(APIView):
                 status=status.HTTP_404_NOT_FOUND
             )
 
-        response, uploaded_file, duration, album, genres = get_audio_info(request, handle_uploaded_file, Album, Genre)
+        response, uploaded_file, duration, album, genres = get_audio_info(request, handle_uploaded_file, Album, Genre, is_patch_method=False)
         if response is not None:
             return response
 

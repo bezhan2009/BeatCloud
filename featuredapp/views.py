@@ -10,6 +10,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from musicapp.models import (Music,
                              Album)
+from playlistapp.models import Playlist
 from singerapp.models import Singer
 from utils.tokens import get_user_id_from_token
 from .serializers import *
@@ -244,6 +245,111 @@ class FeaturedAlbumDetail(APIView):
         featured_album.delete()
         return Response(
             data={"message": "Album was deleted successfully from favorites"},
+            status=status.HTTP_200_OK
+        )
+
+
+class FeaturedPlaylistView(APIView):
+    authentication_classes = (JWTAuthentication, )
+    permission_classes = (permissions.IsAuthenticated, )
+
+    def get(self, request):
+        user_id = get_user_id_from_token(request)
+        user = UserProfile.objects.get(id=user_id)
+        featured_playlists = FeaturedPlaylists.objects.prefetch_related("playlist").filter(user=user)
+        if not featured_playlists:
+            return Response(
+                data={'message': 'No featured playlists found'},
+                status=status.HTTP_200_OK
+            )
+
+        serializer = FeaturedPlaylistSerializer(featured_playlists)
+
+        return Response(
+            data=serializer.data,
+            status=status.HTTP_200_OK
+        )
+
+    def post(self, request):
+        user_id = get_user_id_from_token(request)
+        user = UserProfile.objects.get(id=user_id)
+        playlist_id = request.data.get("playlist_id")
+        if not playlist_id:
+            return Response(
+                data={'message': 'Missing playlist id'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        try:
+            playlist = Playlist.objects.get(id=playlist_id)
+        except Playlist.DoesNotExist:
+            return Response(
+                data={'message': 'Playlist does not exist'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        serializer = FeaturedPlaylistSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(user=user, playlist=playlist)
+            return Response(
+                data={"message": "Playlist added to favorites"},
+                status=status.HTTP_201_CREATED
+            )
+
+        return Response(
+            data=serializer.errors,
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
+
+class FeaturedPlaylistDetailView(APIView):
+    authentication_classes = (JWTAuthentication, )
+    permission_classes = (permissions.IsAuthenticated, )
+
+    def get_object(self, pk, request):
+        user_id = get_user_id_from_token(request)
+        try:
+            user = UserProfile.objects.get(id=user_id)
+        except UserProfile.DoesNotExist:
+            return Response(
+                data={'message': 'User does not exist'},
+                status=status.HTTP_401_UNAUTHORIZED
+            ), 0
+
+        return FeaturedPlaylists.objects.prefetch_related("playlist").get(id=pk, user=user), 1
+
+    def get(self, request, pk):
+        try:
+            featured_playlists, is_success = self.get_object(pk, request)
+            if not is_success:
+                return featured_playlists
+
+            serializer = FeaturedPlaylistSerializer(featured_playlists)
+        except FeaturedPlaylists.DoesNotExist:
+            return Response(
+                data={'message': 'Featured Playlist not found'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        return Response(
+            data=serializer.data,
+            status=status.HTTP_200_OK
+        )
+
+    def delete(self, reqeust, pk):
+        try:
+            playlist, is_success = self.get_object(pk, reqeust)
+            if not is_success:
+                return playlist
+        except Playlist.DoesNotExist:
+            return Response(
+                data={'message': 'Playlist does not exist'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        playlist.delete()
+        return Response(
+            data={"message": "Playlist was deleted successfully from favorites"},
             status=status.HTTP_200_OK
         )
 

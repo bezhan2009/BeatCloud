@@ -46,12 +46,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'drf_yasg',
+    'guardian',
     'userapp',
     'musicapp',
     'singerapp',
     'subscriptions',
     'featuredapp',
-    'commentapp'
+    'commentapp',
+    'playlistapp'
 ]
 
 MIDDLEWARE = [
@@ -116,6 +118,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',  # Стандартный бэкенд
+    'guardian.backends.ObjectPermissionBackend',  # Бэкенд объектных прав
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

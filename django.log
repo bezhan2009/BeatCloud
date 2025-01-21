@@ -2565,3 +2565,285 @@ WARNING 2025-01-19 19:09:53,479 log 13864 13720 Bad Request: /comments/album/2/
 WARNING 2025-01-19 19:09:53,480 basehttp 13864 13720 "POST /comments/album/2/ HTTP/1.1" 400 58
 WARNING 2025-01-19 19:10:07,343 log 13864 13720 Not Found: /comments/album/2/
 WARNING 2025-01-19 19:10:07,344 basehttp 13864 13720 "POST /comments/album/2/ HTTP/1.1" 404 38
+WARNING 2025-01-20 16:47:58,669 log 8140 13264 Unauthorized: /playlist/my/
+WARNING 2025-01-20 16:47:58,671 basehttp 8140 13264 "GET /playlist/my/ HTTP/1.1" 401 58
+ERROR 2025-01-20 17:04:16,144 log 7364 2428 Internal Server Error: /playlist/my
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/playlist/my/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-01-20 17:04:16,147 basehttp 7364 2428 "POST /playlist/my HTTP/1.1" 500 80290
+WARNING 2025-01-20 17:04:21,671 log 7364 12304 Unauthorized: /playlist/my/
+WARNING 2025-01-20 17:04:21,671 basehttp 7364 12304 "POST /playlist/my/ HTTP/1.1" 401 58
+ERROR 2025-01-20 17:04:34,459 log 7364 1540 Internal Server Error: /playlist/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\playlistapp\views.py", line 210, in get
+    playlists = Playlist.objects.prefetch_related("music").filter(is_private=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1495, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1307, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1772, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'is_private' into field. Choices are: id, music, playlist, private, title, user, user_id
+ERROR 2025-01-20 17:04:34,465 basehttp 7364 1540 "GET /playlist/ HTTP/1.1" 500 142557
+WARNING 2025-01-20 17:06:22,379 log 10000 13028 Not Found: /playlist/my/1/
+WARNING 2025-01-20 17:06:22,379 basehttp 10000 13028 "PATCH /playlist/my/1/ HTTP/1.1" 404 4127
+WARNING 2025-01-20 17:07:36,415 log 10000 7472 Not Found: /playlist/my/1
+WARNING 2025-01-20 17:07:36,415 basehttp 10000 7472 "DELETE /playlist/my/1 HTTP/1.1" 404 37
+WARNING 2025-01-20 17:09:46,960 log 13088 9440 Unauthorized: /playlist/my/1
+WARNING 2025-01-20 17:09:46,960 basehttp 13088 9440 "GET /playlist/my/1 HTTP/1.1" 401 58
+WARNING 2025-01-20 17:09:52,802 log 13088 9440 Not Found: /playlist/my/1
+WARNING 2025-01-20 17:09:52,803 basehttp 13088 9440 "GET /playlist/my/1 HTTP/1.1" 404 37
+WARNING 2025-01-20 19:28:49,288 log 20032 19660 Not Found: /playlist/my/1
+WARNING 2025-01-20 19:28:49,289 basehttp 20032 19660 "GET /playlist/my/1 HTTP/1.1" 404 37
+WARNING 2025-01-20 21:00:32,172 log 7392 21088 Not Found: /playlist/my/3
+WARNING 2025-01-20 21:00:32,173 basehttp 7392 21088 "GET /playlist/my/3 HTTP/1.1" 404 37
+WARNING 2025-01-20 21:00:58,610 log 22272 17616 Not Found: /playlist/my/3
+WARNING 2025-01-20 21:00:58,611 basehttp 22272 17616 "GET /playlist/my/3 HTTP/1.1" 404 37
+WARNING 2025-01-20 21:01:38,487 log 22272 17616 Forbidden: /playlist/my/permissions/restore/3
+WARNING 2025-01-20 21:01:38,487 basehttp 22272 17616 "PUT /playlist/my/permissions/restore/3 HTTP/1.1" 403 50
+WARNING 2025-01-20 21:04:41,314 log 22272 17616 Not Found: /playlist/my/music/2
+WARNING 2025-01-20 21:04:41,315 basehttp 22272 17616 "PATCH /playlist/my/music/2 HTTP/1.1" 404 34
+WARNING 2025-01-20 21:04:46,110 log 22272 17616 Not Found: /playlist/my/music/2
+WARNING 2025-01-20 21:04:46,111 basehttp 22272 17616 "PATCH /playlist/my/music/2 HTTP/1.1" 404 34
+WARNING 2025-01-20 21:04:51,093 log 22272 17616 Not Found: /playlist/my/music/2
+WARNING 2025-01-20 21:04:51,094 basehttp 22272 17616 "PATCH /playlist/my/music/2 HTTP/1.1" 404 34
+ERROR 2025-01-20 21:13:09,026 log 23512 23212 Internal Server Error: /playlist/my/2
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: Œÿ»¡ ¿:  ÓÚÌÓ¯ÂÌËÂ "playlistapp_playlistmusic" ÌÂ ÒÛ˘ÂÒÚ‚ÛÂÚ
+LINE 1: ...music"."listens" FROM "musicapp_music" INNER JOIN "playlista...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\playlistapp\views.py", line 132, in get
+    playlist_perms = get_playlist_perms(request, pk)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\playlistapp\views.py", line 28, in get_playlist_perms
+    playlist = Playlist.objects.prefetch_related("music").get(pk=pk)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1930, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1320, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 2381, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+                                   ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 2582, in prefetch_one_level
+    all_related_objects = list(rel_qs)
+                          ^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 400, in __iter__
+    self._fetch_all()
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: Œÿ»¡ ¿:  ÓÚÌÓ¯ÂÌËÂ "playlistapp_playlistmusic" ÌÂ ÒÛ˘ÂÒÚ‚ÛÂÚ
+LINE 1: ...music"."listens" FROM "musicapp_music" INNER JOIN "playlista...
+                                                             ^
+
+ERROR 2025-01-20 21:13:09,033 basehttp 23512 23212 "GET /playlist/my/2 HTTP/1.1" 500 195913
+ERROR 2025-01-20 21:21:05,883 log 4540 17172 Internal Server Error: /playlist/my/2
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: Œÿ»¡ ¿:  ÓÚÌÓ¯ÂÌËÂ "playlistapp_playlist" ÌÂ ÒÛ˘ÂÒÚ‚ÛÂÚ
+LINE 1: ...t"."title", "playlistapp_playlist"."private" FROM "playlista...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\playlistapp\views.py", line 132, in get
+    playlist_perms = get_playlist_perms(request, pk)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\playlistapp\views.py", line 28, in get_playlist_perms
+    playlist = Playlist.objects.prefetch_related("music").get(pk=pk)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: Œÿ»¡ ¿:  ÓÚÌÓ¯ÂÌËÂ "playlistapp_playlist" ÌÂ ÒÛ˘ÂÒÚ‚ÛÂÚ
+LINE 1: ...t"."title", "playlistapp_playlist"."private" FROM "playlista...
+                                                             ^
+
+ERROR 2025-01-20 21:21:05,889 basehttp 4540 17172 "GET /playlist/my/2 HTTP/1.1" 500 167053
+WARNING 2025-01-21 19:06:04,958 log 23436 9976 Unauthorized: /playlist/my/2
+WARNING 2025-01-21 19:06:04,959 basehttp 23436 9976 "GET /playlist/my/2 HTTP/1.1" 401 183
+WARNING 2025-01-21 19:06:15,210 log 23436 9976 Unauthorized: /auth/sign-in/
+WARNING 2025-01-21 19:06:15,210 basehttp 23436 9976 "POST /auth/sign-in/ HTTP/1.1" 401 63
+WARNING 2025-01-21 19:07:26,861 log 23436 26488 Unauthorized: /playlist/my/1
+WARNING 2025-01-21 19:07:26,861 basehttp 23436 26488 "GET /playlist/my/1 HTTP/1.1" 401 183
+WARNING 2025-01-21 19:09:11,904 log 23436 22728 Unauthorized: /music/genre/
+WARNING 2025-01-21 19:09:11,904 basehttp 23436 22728 "POST /music/genre/ HTTP/1.1" 401 183
+WARNING 2025-01-21 19:09:34,099 log 23436 22728 Bad Request: /music/
+WARNING 2025-01-21 19:09:34,099 basehttp 23436 22728 "POST /music/ HTTP/1.1" 400 33
+WARNING 2025-01-21 19:13:20,860 log 20600 24908 Bad Request: /music/
+WARNING 2025-01-21 19:13:20,861 basehttp 20600 24908 "POST /music/ HTTP/1.1" 400 33
+WARNING 2025-01-21 19:14:20,631 log 25980 25704 Bad Request: /music/
+WARNING 2025-01-21 19:14:20,632 basehttp 25980 25704 "POST /music/ HTTP/1.1" 400 33
+WARNING 2025-01-21 19:14:40,057 log 25980 25704 Bad Request: /music/
+WARNING 2025-01-21 19:14:40,058 basehttp 25980 25704 "POST /music/ HTTP/1.1" 400 33
+WARNING 2025-01-21 19:15:02,107 log 25980 25704 Unsupported Media Type: /music/
+WARNING 2025-01-21 19:15:02,108 basehttp 25980 25704 "POST /music/ HTTP/1.1" 415 62
+WARNING 2025-01-21 19:17:40,031 log 25980 25300 Bad Request: /music/
+WARNING 2025-01-21 19:17:40,032 basehttp 25980 25300 "POST /music/ HTTP/1.1" 400 33
+WARNING 2025-01-21 19:18:03,347 log 25980 25300 Unauthorized: /music/album/
+WARNING 2025-01-21 19:18:28,419 log 25980 22784 Unauthorized: /music/1/
+WARNING 2025-01-21 19:18:28,420 basehttp 25980 22784 "PATCH /music/1/ HTTP/1.1" 401 33
+WARNING 2025-01-21 19:19:32,466 log 25980 22784 Unauthorized: /playlist/my/music/2
+WARNING 2025-01-21 19:19:32,466 basehttp 25980 22784 "PATCH /playlist/my/music/2 HTTP/1.1" 401 183
+WARNING 2025-01-21 19:19:36,827 log 25980 22784 Not Found: /playlist/my/music/2
+WARNING 2025-01-21 19:19:36,828 basehttp 25980 22784 "PATCH /playlist/my/music/2 HTTP/1.1" 404 34
+WARNING 2025-01-21 19:20:38,063 log 25980 13060 Unauthorized: /playlist/my/music/2
+WARNING 2025-01-21 19:20:38,064 basehttp 25980 13060 "DELETE /playlist/my/music/2 HTTP/1.1" 401 183
