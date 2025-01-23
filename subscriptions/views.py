@@ -11,7 +11,7 @@ from singerapp.models import Singer
 from utils.tokens import get_user_id_from_token
 from .serializers import *
 
-logger = logging.getLogger("subscriptions.listens")
+logger = logging.getLogger("subscriptions.views")
 
 
 def get_singer_from_request(request):

@@ -21,6 +21,7 @@ class Playlist(models.Model):
             ("get_playlist", "View playlist"),
             ("add_music", "Add music to playlist"),
             ("remove_music", "Remove music from playlist"),
+            ("view_playlist_perms", "View user playlist perms"),
             ("set_playlist_perms", "Update playlist permissions"),
             ("remove_playlist_perms", "Remove playlist permissions"),
         ]
