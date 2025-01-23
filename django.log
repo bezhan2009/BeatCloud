@@ -2847,3 +2847,421 @@ WARNING 2025-01-21 19:19:36,827 log 25980 22784 Not Found: /playlist/my/music/2
 WARNING 2025-01-21 19:19:36,828 basehttp 25980 22784 "PATCH /playlist/my/music/2 HTTP/1.1" 404 34
 WARNING 2025-01-21 19:20:38,063 log 25980 13060 Unauthorized: /playlist/my/music/2
 WARNING 2025-01-21 19:20:38,064 basehttp 25980 13060 "DELETE /playlist/my/music/2 HTTP/1.1" 401 183
+ERROR 2025-01-21 20:16:11,892 log 29572 28796 Internal Server Error: /playlist/1
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: PlaylistMusicView.get() got an unexpected keyword argument 'pk'
+ERROR 2025-01-21 20:16:11,897 basehttp 29572 28796 "GET /playlist/1 HTTP/1.1" 500 98664
+ERROR 2025-01-21 20:16:31,454 log 29560 23240 Internal Server Error: /playlist/1
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: Œÿ»¡ ¿:  ÒÚÓÎ·Âˆ playlistapp_playlist.listens ÌÂ ÒÛ˘ÂÒÚ‚ÛÂÚ
+LINE 1: ...ylist"."title", "playlistapp_playlist"."private", "playlista...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\playlistapp\views.py", line 285, in get
+    playlists = Playlist.objects.prefetch_related("music").get(private=False, id=pk)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: Œÿ»¡ ¿:  ÒÚÓÎ·Âˆ playlistapp_playlist.listens ÌÂ ÒÛ˘ÂÒÚ‚ÛÂÚ
+LINE 1: ...ylist"."title", "playlistapp_playlist"."private", "playlista...
+                                                             ^
+
+ERROR 2025-01-21 20:16:31,459 basehttp 29560 23240 "GET /playlist/1 HTTP/1.1" 500 163543
+WARNING 2025-01-21 20:16:54,217 log 29560 23240 Not Found: /playlist/1
+WARNING 2025-01-21 20:16:54,218 basehttp 29560 23240 "GET /playlist/1 HTTP/1.1" 404 37
+WARNING 2025-01-21 20:20:38,005 log 29560 28936 Bad Request: /playlist/my/permissions/1
+WARNING 2025-01-21 20:20:38,006 basehttp 29560 28936 "PUT /playlist/my/permissions/1 HTTP/1.1" 400 29
+WARNING 2025-01-21 20:20:42,471 log 29560 28936 Not Found: /playlist/my/permissions/1
+WARNING 2025-01-21 20:20:42,471 basehttp 29560 28936 "PUT /playlist/my/permissions/1 HTTP/1.1" 404 37
+WARNING 2025-01-21 20:20:45,915 log 29560 28936 Not Found: /playlist/my/permissions/2
+WARNING 2025-01-21 20:20:45,916 basehttp 29560 28936 "PUT /playlist/my/permissions/2 HTTP/1.1" 404 37
+WARNING 2025-01-21 20:21:13,994 log 23740 22384 Not Found: /playlist/my/permissions/2
+WARNING 2025-01-21 20:21:13,995 basehttp 23740 22384 "PUT /playlist/my/permissions/2 HTTP/1.1" 404 37
+WARNING 2025-01-21 20:46:25,050 log 29376 30716 Not Found: /playlist/my/1
+WARNING 2025-01-21 20:46:25,051 basehttp 29376 30716 "GET /playlist/my/1 HTTP/1.1" 404 37
+WARNING 2025-01-21 20:49:28,101 log 29376 23452 Not Found: /playlist/my/1
+WARNING 2025-01-21 20:49:28,102 basehttp 29376 23452 "GET /playlist/my/1 HTTP/1.1" 404 37
+WARNING 2025-01-21 20:49:57,905 log 29376 23452 Not Found: /playlist/my/music/2
+WARNING 2025-01-21 20:49:57,906 basehttp 29376 23452 "DELETE /playlist/my/music/2 HTTP/1.1" 404 41
+WARNING 2025-01-21 20:49:58,852 log 29376 23452 Not Found: /playlist/my/music/2
+WARNING 2025-01-21 20:49:58,853 basehttp 29376 23452 "DELETE /playlist/my/music/2 HTTP/1.1" 404 41
+WARNING 2025-01-21 20:50:24,541 log 29376 23408 Not Found: /playlist/my/1
+WARNING 2025-01-21 20:50:24,542 basehttp 29376 23408 "GET /playlist/my/1 HTTP/1.1" 404 37
+WARNING 2025-01-21 20:50:52,201 log 29376 23408 Forbidden: /playlist/my/permissions/2
+WARNING 2025-01-21 20:50:52,201 basehttp 29376 23408 "PUT /playlist/my/permissions/2 HTTP/1.1" 403 46
+WARNING 2025-01-21 20:50:58,953 log 29376 23408 Not Found: /playlist/my/permissions/2
+WARNING 2025-01-21 20:50:58,953 basehttp 29376 23408 "PUT /playlist/my/permissions/2 HTTP/1.1" 404 33
+WARNING 2025-01-21 20:53:43,629 log 29376 29124 Bad Request: /playlist/my/permissions/2
+WARNING 2025-01-21 20:53:43,629 basehttp 29376 29124 "DELETE /playlist/my/permissions/2 HTTP/1.1" 400 29
+WARNING 2025-01-21 20:53:56,764 log 29376 29124 Forbidden: /playlist/my/permissions/2
+WARNING 2025-01-21 20:53:56,764 basehttp 29376 29124 "DELETE /playlist/my/permissions/2 HTTP/1.1" 403 65
+WARNING 2025-01-21 20:54:22,776 log 29376 29124 Forbidden: /playlist/my/permissions/2
+WARNING 2025-01-21 20:54:22,777 basehttp 29376 29124 "DELETE /playlist/my/permissions/2 HTTP/1.1" 403 65
+WARNING 2025-01-21 20:55:37,105 log 27468 25348 Forbidden: /playlist/my/permissions/2
+WARNING 2025-01-21 20:55:37,106 basehttp 27468 25348 "DELETE /playlist/my/permissions/2 HTTP/1.1" 403 65
+WARNING 2025-01-21 20:56:24,213 log 27468 25348 Forbidden: /playlist/my/permissions/2
+WARNING 2025-01-21 20:56:24,214 basehttp 27468 25348 "DELETE /playlist/my/permissions/2 HTTP/1.1" 403 65
+WARNING 2025-01-21 20:58:00,279 log 25356 31608 Not Found: /playlist/my/2
+WARNING 2025-01-21 20:58:00,279 basehttp 25356 31608 "GET /playlist/my/2 HTTP/1.1" 404 37
+WARNING 2025-01-21 21:02:14,763 log 30904 23452 Bad Request: /playlist/my/permissions/sp/2
+WARNING 2025-01-21 21:02:14,764 basehttp 30904 23452 "PATCH /playlist/my/permissions/sp/2 HTTP/1.1" 400 32
+ERROR 2025-01-21 21:02:28,537 log 30904 23452 Internal Server Error: /playlist/my/permissions/sp/2
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\playlistapp\views.py", line 422, in patch
+    playlist_perms.set_perm(perm)
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'PlaylistPerms' object has no attribute 'set_perm'. Did you mean: 'add_perm'?
+ERROR 2025-01-21 21:02:28,542 basehttp 30904 23452 "PATCH /playlist/my/permissions/sp/2 HTTP/1.1" 500 105129
+ERROR 2025-01-21 21:03:21,014 log 30256 30208 Internal Server Error: /playlist/my/music/2
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\playlistapp\views.py", line 208, in patch
+    raise Playlist.DoesNotExist
+playlistapp.models.Playlist.DoesNotExist
+ERROR 2025-01-21 21:03:21,019 basehttp 30256 30208 "PATCH /playlist/my/music/2 HTTP/1.1" 500 103270
+WARNING 2025-01-23 17:00:41,536 log 10112 7620 Bad Request: /playlist/my/permissions/sp/2
+WARNING 2025-01-23 17:00:41,538 basehttp 10112 7620 "DELETE /playlist/my/permissions/sp/2 HTTP/1.1" 400 29
+WARNING 2025-01-23 17:38:54,846 log 11064 8360 Bad Request: /playlist/my/permissions/sp/2
+WARNING 2025-01-23 17:38:54,847 basehttp 11064 8360 "GET /playlist/my/permissions/sp/2 HTTP/1.1" 400 29
+WARNING 2025-01-23 17:39:15,890 log 11064 8360 Not Found: /playlist/my/2
+WARNING 2025-01-23 17:39:15,891 basehttp 11064 8360 "GET /playlist/my/2 HTTP/1.1" 404 37
+WARNING 2025-01-23 18:40:24,873 log 11808 35124 Unauthorized: /love/followers
+WARNING 2025-01-23 18:40:24,874 basehttp 11808 35124 "GET /love/followers HTTP/1.1" 401 58
+WARNING 2025-01-23 18:40:33,188 log 11808 35124 Not Found: /love/followers
+WARNING 2025-01-23 18:40:33,188 basehttp 11808 35124 "GET /love/followers HTTP/1.1" 404 26
+WARNING 2025-01-23 18:47:04,286 log 11808 34376 Unauthorized: /love/followers/1
+WARNING 2025-01-23 18:47:04,287 basehttp 11808 34376 "GET /love/followers/1 HTTP/1.1" 401 58
+WARNING 2025-01-23 18:47:09,878 log 11808 34376 Not Found: /love/followers/1
+WARNING 2025-01-23 18:47:09,878 basehttp 11808 34376 "GET /love/followers/1 HTTP/1.1" 404 32
+WARNING 2025-01-23 18:47:28,418 log 11808 34376 Unauthorized: /love/followers/1
+WARNING 2025-01-23 18:47:28,419 basehttp 11808 34376 "DELETE /love/followers/1 HTTP/1.1" 401 58
+WARNING 2025-01-23 18:47:33,158 log 11808 34376 Not Found: /love/followers/1
+WARNING 2025-01-23 18:47:33,159 basehttp 11808 34376 "DELETE /love/followers/1 HTTP/1.1" 404 32
+WARNING 2025-01-23 18:48:41,463 log 11808 35588 Not Found: /love/follow
+WARNING 2025-01-23 18:48:41,463 basehttp 11808 35588 "GET /love/follow HTTP/1.1" 404 27
+WARNING 2025-01-23 18:49:32,597 log 11808 13924 Bad Request: /love/follow
+WARNING 2025-01-23 18:49:32,597 basehttp 11808 13924 "POST /love/follow HTTP/1.1" 400 38
+WARNING 2025-01-23 18:49:44,704 log 11808 13924 Bad Request: /love/follow
+WARNING 2025-01-23 18:49:44,705 basehttp 11808 13924 "POST /love/follow HTTP/1.1" 400 85
+WARNING 2025-01-23 18:59:24,728 log 35992 6728 Bad Request: /love/follow
+WARNING 2025-01-23 18:59:24,728 basehttp 35992 6728 "POST /love/follow HTTP/1.1" 400 88
+WARNING 2025-01-23 18:59:33,432 log 35912 35240 Bad Request: /love/follow
+WARNING 2025-01-23 18:59:33,432 basehttp 35912 35240 "POST /love/follow HTTP/1.1" 400 88
+WARNING 2025-01-23 19:01:09,065 log 35912 34256 Bad Request: /love/follow
+WARNING 2025-01-23 19:01:09,066 basehttp 35912 34256 "POST /love/follow HTTP/1.1" 400 88
+WARNING 2025-01-23 19:10:35,370 log 28204 13924 Unauthorized: /love/follow/4
+WARNING 2025-01-23 19:10:35,371 basehttp 28204 13924 "DELETE /love/follow/4 HTTP/1.1" 401 58
+WARNING 2025-01-23 19:10:42,909 log 28204 13924 Not Found: /love/follow/4
+WARNING 2025-01-23 19:10:42,909 basehttp 28204 13924 "DELETE /love/follow/4 HTTP/1.1" 404 32
+ERROR 2025-01-23 19:26:52,393 log 34084 36892 Internal Server Error: /love/singer/likes/cnt/1
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\subscriptions\views.py", line 360, in get
+    data={'message': Likes.objects.filter(music__singer__singer_id=pk).count()},
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1559, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1383, in build_lookup
+    lhs = self.try_transform(lhs, lookup_name)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1427, in try_transform
+    raise FieldError(
+django.core.exceptions.FieldError: Unsupported lookup 'singer_id' for ForeignKey or join on the field not permitted.
+ERROR 2025-01-23 19:26:52,400 basehttp 34084 36892 "GET /love/singer/likes/cnt/1 HTTP/1.1" 500 149047
+WARNING 2025-01-23 19:28:46,527 log 37236 35580 Not Found: /love/singer/followers
+WARNING 2025-01-23 19:28:46,528 basehttp 37236 35580 "GET /love/singer/followers HTTP/1.1" 404 5669
+WARNING 2025-01-23 19:29:19,649 log 36096 37548 Unauthorized: /love/singer/likes/
+WARNING 2025-01-23 19:29:19,650 basehttp 36096 37548 "GET /love/singer/likes/ HTTP/1.1" 401 58
+ERROR 2025-01-23 19:29:26,256 log 36096 37616 Internal Server Error: /love/singer/likes/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\subscriptions\views.py", line 313, in get
+    likes = Likes.objects.prefetch_related("music").filter(singer=singer)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1495, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1307, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\sql\query.py", line 1772, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'singer' into field. Choices are: id, music, music_id, user, user_id
+ERROR 2025-01-23 19:29:26,261 basehttp 36096 37616 "GET /love/singer/likes/ HTTP/1.1" 500 143385
+WARNING 2025-01-23 19:30:31,889 log 28204 37292 Not Found: /love/song/likes
+WARNING 2025-01-23 19:30:31,890 basehttp 28204 37292 "GET /love/song/likes HTTP/1.1" 404 5652
+ERROR 2025-01-23 19:30:48,245 log 28204 37292 Internal Server Error: /love/song/likes/1
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\subscriptions\views.py", line 331, in get
+    likes = Likes.objects.filter(user=song.user)
+                                      ^^^^^^^^^
+AttributeError: 'Music' object has no attribute 'user'
+ERROR 2025-01-23 19:30:48,250 basehttp 28204 37292 "GET /love/song/likes/1 HTTP/1.1" 500 103081
+WARNING 2025-01-23 19:34:14,755 log 38500 35036 Unauthorized: /love/likes/1
+WARNING 2025-01-23 19:34:14,755 basehttp 38500 35036 "GET /love/likes/1 HTTP/1.1" 401 58
+WARNING 2025-01-23 19:35:14,143 log 38848 37336 Not Found: /love/likes/1
+WARNING 2025-01-23 19:35:14,144 basehttp 38848 37336 "GET /love/likes/1 HTTP/1.1" 404 28
+WARNING 2025-01-23 19:35:35,215 log 38848 37336 Unauthorized: /love/likes/1
+WARNING 2025-01-23 19:35:35,215 basehttp 38848 37336 "DELETE /love/likes/1 HTTP/1.1" 401 58
+WARNING 2025-01-23 19:35:39,468 log 38848 37336 Not Found: /love/likes/1
+WARNING 2025-01-23 19:35:39,468 basehttp 38848 37336 "DELETE /love/likes/1 HTTP/1.1" 404 28
+WARNING 2025-01-23 19:36:23,871 log 38848 37336 Not Found: /love/likes/
+WARNING 2025-01-23 19:36:23,871 basehttp 38848 37336 "GET /love/likes/ HTTP/1.1" 404 5640
+WARNING 2025-01-23 19:36:26,041 log 38848 37336 Not Found: /love/likes
+WARNING 2025-01-23 19:36:26,041 basehttp 38848 37336 "GET /love/likes HTTP/1.1" 404 5637
+WARNING 2025-01-23 19:36:32,888 log 38848 37336 Unauthorized: /love/like
+WARNING 2025-01-23 19:36:32,889 basehttp 38848 37336 "GET /love/like HTTP/1.1" 401 58
+ERROR 2025-01-23 19:37:34,364 log 38848 37336 Internal Server Error: /love/like
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\subscriptions\views.py", line 234, in post
+    response, music = get_music_from_request(request)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\subscriptions\views.py", line 36, in get_music_from_request
+    return None, Music.objects.get(id=music_id)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_Òloud\venv\Lib\site-packages\django\db\models\query.py", line 649, in get
+    raise self.model.DoesNotExist(
+musicapp.models.Music.DoesNotExist: Music matching query does not exist.
+ERROR 2025-01-23 19:37:34,369 basehttp 38848 37336 "POST /love/like HTTP/1.1" 500 115221
+WARNING 2025-01-23 19:38:43,399 log 34964 35480 Not Found: /love/like
+WARNING 2025-01-23 19:38:43,400 basehttp 34964 35480 "POST /love/like HTTP/1.1" 404 29

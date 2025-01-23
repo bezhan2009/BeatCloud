@@ -22,6 +22,9 @@ def get_admin_perms():
         'remove_music',
         'change_playlist',
         'delete_playlist',
+        'view_playlist_perms',
+        'set_playlist_perms',
+        'remove_playlist_perms',
         'all_playlist_perms',
     ]
 
@@ -30,6 +33,9 @@ class PlaylistPerms:
     def __init__(self, user, playlist_object):
         self.user = user
         self.playlist_object = playlist_object
+
+    def get_user_perms(self):
+        return get_perms(self.user, self.playlist_object)
 
     def get_user(self):
         return self.user
@@ -69,10 +75,16 @@ class PlaylistPerms:
         self.add_perms(get_admin_perms())
 
     def add_perm(self, perm):
+        if perm == "all_playlist_perms":
+            print("Permission Denied!!!")
+            return
         assign_perm(perm, self.user, self.playlist_object)
 
     def add_perms(self, perms):
         for perm in perms:
+            if perm == "all_playlist_perms":
+                print("Permission Denied!!!")
+                continue
             assign_perm(perm, self.user, self.playlist_object)
 
     def check_perms(self, perm):

@@ -14,7 +14,9 @@ from musicapp.models import (Music)
 from playlistapp.models import PlaylistMusic
 from utils.tokens import get_user_id_from_token
 from utils.perms_playlist import (PlaylistPerms,
-                                  get_playlist_perms_obj)
+                                  get_playlist_perms_obj,
+                                  get_admin_perms,
+                                  get_basic_perms)
 from .serializers import *
 
 logger = logging.getLogger('playlistapp.views')
@@ -68,6 +70,10 @@ def get_user(request):
             data={'message': 'User does not exist'},
             status=status.HTTP_404_NOT_FOUND
         ), None
+
+
+def get_user_from_token(request):
+    return UserProfile.objects.get(id=get_user_id_from_token(request))
 
 
 class PlaylistUserView(APIView):
@@ -276,6 +282,28 @@ class PlaylistMusicView(APIView):
         )
 
 
+class PlaylistMusicDetailView(APIView):
+    authentication_classes = (JWTAuthentication,)
+    permission_classes = (AllowAny,)
+
+    def get(self, request, pk):
+        try:
+            playlists = Playlist.objects.prefetch_related("music").get(private=False, id=pk)
+        except Playlist.DoesNotExist:
+            return Response(
+                data={'message': 'Playlist does not exist'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        playlists.listens = playlists.listens + 1
+
+        serializer = PlaylistSerializer(playlists, many=False)
+        return Response(
+            data=serializer.data,
+            status=status.HTTP_200_OK
+        )
+
+
 class PlaylistPermissions(APIView):
     authentication_classes = (JWTAuthentication, )
     permission_classes = (IsAuthenticated, )
@@ -285,11 +313,22 @@ class PlaylistPermissions(APIView):
         if response is not None:
             return response
 
+        sender_user = get_user_from_token(request)
+
+        if user == sender_user:
+            return Response(
+                data={'message': 'You cannot set perms to yourself'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
         try:
             playlist_perms = get_playlist_perms(request, pk, user)
-            playlist_user = playlist_perms.get_playlist_user()
-            if playlist_user != user:
-                raise Playlist.DoesNotExist
+            playlist_sender_perms = get_playlist_perms(request, pk, sender_user)
+            if not playlist_sender_perms.check_perms("set_playlist_perms"):
+                return Response(
+                    data={'message': 'Permission denied'},
+                    status=status.HTTP_403_FORBIDDEN
+                )
         except Playlist.DoesNotExist:
             return Response(
                 data={'message': 'Playlist does not exist'},
@@ -307,18 +346,23 @@ class PlaylistPermissions(APIView):
         if response is not None:
             return response
 
+        sender_user = get_user_from_token(request)
+
         try:
             playlist_perms = get_playlist_perms(request, pk, user)
-            playlist_user = playlist_perms.get_playlist_user()
-            if playlist_user != user.id:
-                raise Playlist.DoesNotExist
+            playlist_sender_perms = get_playlist_perms(request, pk, sender_user)
+            if not playlist_sender_perms.check_perms("remove_playlist_perms"):
+                return Response(
+                    data={'message': 'Permission denied'},
+                    status=status.HTTP_403_FORBIDDEN
+                )
         except Playlist.DoesNotExist:
             return Response(
                 data={'message': 'Playlist does not exist'},
                 status=status.HTTP_404_NOT_FOUND
             )
 
-        if user != playlist_user:
+        if sender_user != user:
             playlist_perms.reset_perms()
             return Response(
                 data={'message': 'User permissions reset successfully'},
@@ -335,16 +379,52 @@ class PlaylistPermissionsSpecific(APIView):
     authentication_classes = (JWTAuthentication,)
     permission_classes = (IsAuthenticated,)
 
+    def get(self, request, pk):
+        response, user = get_user(request)
+        if response is not None:
+            return response
+
+        sender_user = get_user_from_token(request)
+
+        try:
+            playlist_perms = get_playlist_perms(request, pk, user)
+            playlist_sender_perms = get_playlist_perms(request, pk, sender_user)
+            if not playlist_sender_perms.check_perms("view_playlist_perms"):
+                return Response(
+                    data={'message': 'Permission denied'},
+                    status=status.HTTP_403_FORBIDDEN
+                )
+        except Playlist.DoesNotExist:
+            return Response(
+                data={'message': 'Playlist does not exist'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        return Response(
+            data={'message': playlist_perms.get_user_perms()}
+        )
+
     def patch(self, request, pk):
         response, user = get_user(request)
         if response is not None:
             return response
 
+        sender_user = get_user_from_token(request)
+
+        if user == sender_user:
+            return Response(
+                data={'message': 'You cannot set perms to yourself'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
         try:
             playlist_perms = get_playlist_perms(request, pk, user)
-            playlist_user = playlist_perms.get_playlist_user()
-            if playlist_user != user.id:
-                raise Playlist.DoesNotExist
+            playlist_sender_perms = get_playlist_perms(request, pk, sender_user)
+            if not playlist_sender_perms.check_perms("set_playlist_perms"):
+                return Response(
+                    data={'message': 'Permission denied'},
+                    status=status.HTTP_403_FORBIDDEN
+                )
         except Playlist.DoesNotExist:
             return Response(
                 data={'message': 'Playlist does not exist'},
@@ -358,7 +438,13 @@ class PlaylistPermissionsSpecific(APIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        playlist_perms.set_perm(perm)
+        if perm not in get_admin_perms() or perm not in get_basic_perms():
+            return Response(
+                data={'message': 'Invalid permission'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        playlist_perms.add_perm(perm)
         return Response(
             data={'message': 'Permission updated successfully'},
             status=status.HTTP_200_OK
@@ -369,11 +455,16 @@ class PlaylistPermissionsSpecific(APIView):
         if response is not None:
             return response
 
+        sender_user = get_user_from_token(request)
+
         try:
             playlist_perms = get_playlist_perms(request, pk, user)
-            playlist_user = playlist_perms.get_playlist_user()
-            if playlist_user != user.id:
-                raise Playlist.DoesNotExist
+            playlist_sender_perms = get_playlist_perms(request, pk, sender_user)
+            if not playlist_sender_perms.check_perms("remove_playlist_perms"):
+                return Response(
+                    data={'message': 'Permission denied'},
+                    status=status.HTTP_403_FORBIDDEN
+                )
         except Playlist.DoesNotExist:
             return Response(
                 data={'message': 'Playlist does not exist'},
@@ -387,10 +478,22 @@ class PlaylistPermissionsSpecific(APIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        playlist_perms.remove_perms(perm)
+        if perm not in get_admin_perms() or perm not in get_basic_perms():
+            return Response(
+                data={'message': 'Invalid permission'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        if sender_user != user:
+            playlist_perms.remove_perms(perm)
+            return Response(
+                data={'message': 'Permission removed successfully'},
+                status=status.HTTP_200_OK
+            )
+
         return Response(
-            data={'message': 'Permission removed successfully'},
-            status=status.HTTP_200_OK
+            data={'message': 'You cannot remove your own permission for a playlist'},
+            status=status.HTTP_403_FORBIDDEN
         )
 
 

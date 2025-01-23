@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'subscriptions',
     'featuredapp',
     'commentapp',
-    'playlistapp'
+    'playlistapp',
 ]
 
 MIDDLEWARE = [

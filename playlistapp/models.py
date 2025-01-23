@@ -10,6 +10,7 @@ class Playlist(models.Model):
     title = models.CharField(max_length=100)
     music = models.ManyToManyField(Music, through='PlaylistMusic', blank=True, related_name='songs_with_count')
     private = models.BooleanField(default=False)
+    listens = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
@@ -20,6 +21,8 @@ class Playlist(models.Model):
             ("get_playlist", "View playlist"),
             ("add_music", "Add music to playlist"),
             ("remove_music", "Remove music from playlist"),
+            ("set_playlist_perms", "Update playlist permissions"),
+            ("remove_playlist_perms", "Remove playlist permissions"),
         ]
 
 
