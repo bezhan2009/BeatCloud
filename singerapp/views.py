@@ -7,6 +7,8 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 
 from musicapp.models import (Album,
                              Music)
@@ -22,6 +24,7 @@ class SingerList(APIView):
     authentication_classes = (JWTAuthentication,)
     permission_classes = (permissions.AllowAny,)
 
+    @method_decorator(cache_page(60 * 15))
     def get(self, request):
         singers = Singer.objects.all()
         if not singers:
@@ -110,6 +113,7 @@ class SingerDetail(APIView):
             ), 0
         return get_object_or_404(Singer, pk=pk, user=user, is_active=True), user_id
 
+    @method_decorator(cache_page(60 * 15))
     def get(self, request, pk):
         try:
             singer, user_id = self.get_object(pk)
@@ -203,6 +207,7 @@ class SingersAlbumList(APIView):
     authentication_classes = (JWTAuthentication,)
     permission_classes = (permissions.AllowAny,)
 
+    @method_decorator(cache_page(60 * 15))
     def get(self, request, pk):
         try:
             singer = Singer.objects.get(id=pk)
@@ -231,6 +236,7 @@ class SingersMusicList(APIView):
     authentication_classes = (JWTAuthentication,)
     permission_classes = (permissions.AllowAny,)
 
+    @method_decorator(cache_page(60 * 15))
     def get(self, request, pk):
         try:
             singer = Singer.objects.get(id=pk)

@@ -8,8 +8,7 @@ from rest_framework.permissions import (AllowAny,
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.authentication import JWTAuthentication
-from guardian.shortcuts import (get_perms,
-                                assign_perm)
+
 from musicapp.models import (Music)
 from playlistapp.models import PlaylistMusic
 from utils.tokens import get_user_id_from_token

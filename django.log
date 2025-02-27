@@ -3265,3 +3265,83 @@ musicapp.models.Music.DoesNotExist: Music matching query does not exist.
 ERROR 2025-01-23 19:37:34,369 basehttp 38848 37336 "POST /love/like HTTP/1.1" 500 115221
 WARNING 2025-01-23 19:38:43,399 log 34964 35480 Not Found: /love/like
 WARNING 2025-01-23 19:38:43,400 basehttp 34964 35480 "POST /love/like HTTP/1.1" 404 29
+WARNING 2025-02-27 17:23:18,805 log 12556 2444 Unauthorized: /love/like
+WARNING 2025-02-27 17:23:18,808 basehttp 12556 2444 "POST /love/like HTTP/1.1" 401 183
+ERROR 2025-02-27 17:24:29,641 log 12556 13876 Internal Server Error: /music/genre/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\utils\decorators.py", line 181, in _view_wrapper
+    result = _pre_process_request(request, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\utils\decorators.py", line 127, in _pre_process_request
+    result = middleware.process_request(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\middleware\cache.py", line 153, in process_request
+    if request.method not in ("GET", "HEAD"):
+       ^^^^^^^^^^^^^^
+AttributeError: 'GenreList' object has no attribute 'method'
+ERROR 2025-02-27 17:24:29,646 basehttp 12556 13876 "GET /music/genre/ HTTP/1.1" 500 113051
+ERROR 2025-02-27 17:26:59,414 log 13532 11724 Internal Server Error: /music/genre/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\utils\decorators.py", line 181, in _view_wrapper
+    result = _pre_process_request(request, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\utils\decorators.py", line 127, in _pre_process_request
+    result = middleware.process_request(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Projects\beat_ñloud\venv\Lib\site-packages\django\middleware\cache.py", line 153, in process_request
+    if request.method not in ("GET", "HEAD"):
+       ^^^^^^^^^^^^^^
+AttributeError: 'GenreList' object has no attribute 'method'
+ERROR 2025-02-27 17:26:59,418 basehttp 13532 11724 "GET /music/genre/ HTTP/1.1" 500 113051
+WARNING 2025-02-27 17:32:43,496 log 13748 6876 Not Found: /music/genre/2/
+WARNING 2025-02-27 17:32:43,498 basehttp 13748 6876 "GET /music/genre/2/ HTTP/1.1" 404 29
+WARNING 2025-02-27 17:32:45,633 log 13748 14396 Not Found: /music/genre/2/
+WARNING 2025-02-27 17:32:45,633 basehttp 13748 14396 "GET /music/genre/2/ HTTP/1.1" 404 29
+WARNING 2025-02-27 17:32:47,000 log 13748 14480 Not Found: /music/genre/2/
+WARNING 2025-02-27 17:32:47,000 basehttp 13748 14480 "GET /music/genre/2/ HTTP/1.1" 404 29
+WARNING 2025-02-27 17:32:50,742 log 13748 3852 Not Found: /music/genre/45/
+WARNING 2025-02-27 17:32:50,743 basehttp 13748 3852 "GET /music/genre/45/ HTTP/1.1" 404 29

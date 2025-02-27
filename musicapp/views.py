@@ -1,4 +1,5 @@
 import logging
+import time
 
 from django.db import transaction
 from django.shortcuts import get_object_or_404, Http404
@@ -7,6 +8,8 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 
 from userapp.models import UserProfile
 from utils.featured_music import delete_featured_music
@@ -23,6 +26,7 @@ class MusicList(APIView):
     authentication_classes = (JWTAuthentication,)
     permission_classes = (permissions.AllowAny,)
 
+    @method_decorator(cache_page(60 * 15))
     def get(self, request):
         music_list = Music.objects.filter(is_deleted=False)
         if not music_list:
@@ -104,6 +108,7 @@ class MusicDetail(APIView):
             ), 0
         return get_object_or_404(Music, pk=pk, singer=singer, is_deleted=False), 1
 
+    @method_decorator(cache_page(60 * 15))
     def get(self, request, pk):
         try:
             music_obj, is_success = self.get_object(pk, is_get_request=True)
@@ -212,6 +217,7 @@ class AlbumList(APIView):
     authentication_classes = (JWTAuthentication,)
     permission_classes = (permissions.AllowAny,)
 
+    @method_decorator(cache_page(60 * 15))
     def get(self, request):
         # Предзагружаем связанные песни
         albums = Album.objects.prefetch_related('songs').all()
@@ -288,6 +294,7 @@ class AlbumDetail(APIView):
 
         return album, pk
 
+    @method_decorator(cache_page(60 * 15))
     def get(self, request, pk):
         try:
             album, album_id = self.get_object(request, pk)
@@ -354,6 +361,7 @@ class GenreList(APIView):
     authentication_classes = (JWTAuthentication,)
     permission_classes = (permissions.AllowAny,)
 
+    @method_decorator(cache_page(60 * 15))
     def get(self, request):
         genre_list = Genre.objects.all()
         if not genre_list:
@@ -390,6 +398,7 @@ class GenreDetail(APIView):
     def get_object(self, pk):
         return get_object_or_404(Genre, pk=pk)
 
+    @method_decorator(cache_page(60 * 15))
     def get(self, request, pk):
         try:
             genre = self.get_object(pk)
