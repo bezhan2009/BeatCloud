@@ -1,5 +1,6 @@
 .idea
-django.log
 temp
 music_files
 album_covers
+
+*.log
